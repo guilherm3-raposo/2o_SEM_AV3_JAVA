@@ -1,0 +1,42 @@
+package edu.senai.integrador.dao.sql;
+
+public class SqlSintaxe {
+	public final String CHAR 	 = (LeXml.getTag("sintaxe")[0]);
+	public final String VARCHAR  = (LeXml.getTag("sintaxe")[1]);
+	public final String DATE 	 = (LeXml.getTag("sintaxe")[2]);
+	public final String DATETIME = (LeXml.getTag("sintaxe")[3]);
+	public final String COMMA 	 = (LeXml.getTag("sintaxe")[4]);
+	public final String IN		 = (LeXml.getTag("sintaxe")[5]);
+	public final String ON		 = (LeXml.getTag("sintaxe")[6]);
+	public final String NOT		 = (LeXml.getTag("sintaxe")[7]);
+	public final String AND		 = (LeXml.getTag("sintaxe")[8]);
+	public final String NULL	 = (LeXml.getTag("sintaxe")[9]);
+	public final String WHERE	 = (LeXml.getTag("sintaxe")[10]);
+	public final String VALUES	 = (LeXml.getTag("sintaxe")[11]);
+	public final String INNER	 = (LeXml.getTag("sintaxe")[12]);
+	public final String LEFT	 = (LeXml.getTag("sintaxe")[13]);
+	public final String RIGHT	 = (LeXml.getTag("sintaxe")[14]);
+	public final String FULL	 = (LeXml.getTag("sintaxe")[15]);
+	public final String SELF	 = (LeXml.getTag("sintaxe")[16]);
+	public final String JOIN	 = (LeXml.getTag("sintaxe")[17]);
+	public final String GROUP	 = (LeXml.getTag("sintaxe")[18]);
+	public final String ORDER	 = (LeXml.getTag("sintaxe")[19]);
+	public final String BY		 = (LeXml.getTag("sintaxe")[20]);
+	public final String HAVING	 = (LeXml.getTag("sintaxe")[21]);
+	public final String EXISTS	 = (LeXml.getTag("sintaxe")[22]);
+	public final String ANY		 = (LeXml.getTag("sintaxe")[23]);
+	public final String ALL		 = (LeXml.getTag("sintaxe")[24]);
+	public final String CASE	 = (LeXml.getTag("sintaxe")[25]);
+	public final String FROM	 = (LeXml.getTag("sintaxe")[26]);
+	public final String INSERT	 = (LeXml.getTag("sintaxe")[27]);
+	public final String CREATE	 = (LeXml.getTag("sintaxe")[28]);
+	public final String SELECT	 = (LeXml.getTag("sintaxe")[29]);
+	public final String UPDATE	 = (LeXml.getTag("sintaxe")[30]);
+	public final String DELETE	 = (LeXml.getTag("sintaxe")[31]);
+	public final String INTO	 = (LeXml.getTag("sintaxe")[32]);
+	public final String DATABASE = (LeXml.getTag("sintaxe")[33]);
+	public final String SET		 = (LeXml.getTag("sintaxe")[34]);
+	public final String EQUALS	 = (LeXml.getTag("sintaxe")[35]);
+	public final String END_LINE = (LeXml.getTag("sintaxe")[36]);
+	public final String CLOSE	 = (LeXml.getTag("sintaxe")[37]);
+}
