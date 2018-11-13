@@ -52,7 +52,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 	private String[] constroiInsert (Aluno aluno){
 		String[] insert = new String[2];
 
-		insert[0] = comandos.INSERT_PESSOA + 
+		insert[0] = comandos.INSERT_PESSOA + sq.VARCHAR +
 					aluno.getCPF() + sq.VARCHAR + sq.COMMA + sq.VARCHAR +
 					aluno.getNome() + sq.VARCHAR + sq.COMMA + 
 					aluno.getEstadoCivil().ordinal() + sq.COMMA + 
@@ -62,8 +62,9 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 		insert[1] = comandos.INSERT_ALUNO.toString() + sq.VARCHAR + 
 					aluno.getCPF() + sq.VARCHAR + sq.COMMA +
 					aluno.getAltura() + sq.COMMA + 
-					aluno.getPeso() + sq.COMMA + 
-					aluno.getIMC() + sq.END_LINE;
+					aluno.getPeso() + sq.END_LINE;
+		System.out.println(insert[0]);
+		System.out.println(insert[1]);
 		return insert;
 	}
 	
@@ -228,11 +229,15 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 		if (consulta(codigo) instanceof Aluno) {
 			Connection conexao = Conexao.getConexao();
 			try {
+				System.out.println(sq.DELETE.toString() + sq.FROM + tabelas.ALUNO + sq.WHERE + colunas.CPF + sq.EQUALS
+						+ sq.VARCHAR + codigo + sq.VARCHAR + sq.CLOSE);
+				System.out.println(sq.DELETE.toString() + sq.FROM + tabelas.PESSOA + sq.WHERE + colunas.CPF + sq.EQUALS
+						+ codigo + sq.VARCHAR + sq.CLOSE);
 				Statement st = conexao.createStatement();
 				st.execute(sq.DELETE.toString() + sq.FROM + tabelas.ALUNO + sq.WHERE
-						+ sq.VARCHAR + codigo + sq.VARCHAR + sq.END_LINE);
+						+ sq.VARCHAR + codigo + sq.VARCHAR + sq.CLOSE);
 				st.execute(sq.DELETE.toString() + sq.FROM + tabelas.PESSOA + sq.WHERE
-						+ codigo + sq.VARCHAR + sq.END_LINE);
+						+ codigo + sq.VARCHAR + sq.CLOSE);
 			} catch (SQLException e) {
 				throw new DAOException(EDaoErros.EXCLUI_DADO, e.getMessage(), this.getClass());
 			} finally {

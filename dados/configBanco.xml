@@ -9,32 +9,50 @@
 			<turma>Turma</turma>
 			<modalidade>Modalidade</modalidade>						
 		</tabelas>
+
+		<colunasAluno>
+			<id>CPF</id>
+			<altura>altura</altura>
+			<peso>peso</peso>
+		</colunasAluno>
 		
-		<colunas>
+		<colunasFuncionario>
+			<id>CPF</id>
+			<escol>escolaridade</escol>
+			<CTPS>CTPS</CTPS>
+		</colunasFuncionario>
+		
+		<colunasModalidade>
+			<semana>semana</semana>
+			<idMod>idModalidade</idMod>
+			<minimo>minimoParticipantes</minimo>
+			<maximo>maximoParticipantes</maximo>	
+		</colunasModalidade>
+
+		<colunasTurma>
+			<idTurma>idTurma</idTurma>
+			<idMod>idModalidade</idMod>
+			<inicio>horarioInicio</inicio>
+			<duracaoMinutos>duracaoMinutos</duracaoMinutos>
+		</colunasTurma>
+		
+		<colunasParticipantes>
+			<idTurma>idTurma</idTurma>
+			<idAluno>CPFAluno</idAluno>
+			<idFuncionario>CPFFuncionario</idFuncionario>
+		</colunasParticipantes>
+		
+		<colunasPessoa>
 			<id>CPF</id>
 			<nome>nome</nome>
 			<eCivil>estadoCivil</eCivil>
 			<sexo>sexo</sexo>
 			<dataNasc>dataNascimento</dataNasc>
-			<altura>altura</altura>
-			<peso>peso</peso>
-			<imc>IMC</imc>
-			<escol>escolaridade</escol>
-			<CTPS>CTPS</CTPS>
-			<idTurma>idTurma</idTurma>
-			<inicio>horarioInicio</inicio>
-			<duracaoMinutos>duracaoMinutos</duracaoMinutos>
-			<semana>semana</semana>
-			<idAluno>CPFAluno</idAluno>
-			<idFuncionario>CPFFuncionario</idFuncionario>
-			<idMod>idModalidade</idMod>
-			<minimo>minimoParticipantes</minimo>
-			<maximo>maximoParticipantes</maximo>	
-		</colunas>
+		</colunasPessoa>
 
 		<comandos>		
 				 <insertPessoa>INSERT INTO pessoa(CPF, nome, estadoCivil, sexo, dataNascimento) VALUES(</insertPessoa>
-		 		  <insertAluno>INSERT INTO aluno(CPF, altura, peso, IMC) VALUES(</insertAluno>
+		 		  <insertAluno>INSERT INTO aluno(CPF, altura, peso) VALUES(</insertAluno>
 			<insertFuncionario>INSERT INTO funcionario(CPF, escolaridade, CTPS) VALUES(</insertFuncionario>
 	 			 <selectAlunos>select * from aluno inner join pessoa on aluno.CPF = pessoa.cpf;</selectAlunos>
 				  <selectAluno>select * from aluno inner join pessoa on aluno.CPF = pessoa.cpf where aluno.CPF = ?;</selectAluno>
