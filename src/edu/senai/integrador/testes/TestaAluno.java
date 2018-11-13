@@ -1,14 +1,17 @@
 package edu.senai.integrador.testes;
 
+import java.time.LocalDate;
+
 import edu.senai.integrador.bancodedados.conexao.ConexaoException;
+import edu.senai.integrador.beans.Aluno;
+import edu.senai.integrador.beans.enumeradores.EEstadoCivil;
+import edu.senai.integrador.beans.enumeradores.ESexo;
 import edu.senai.integrador.beans.exception.PessoaException;
+import edu.senai.integrador.dao.AlunoDAO;
 import edu.senai.integrador.dao.DAOException;
 
 public class TestaAluno {
 	public static void main(String[] args) throws PessoaException, ConexaoException, DAOException {
-//		Aluno xanaina = new Aluno("99988877766", "Xanaina", LocalDate.of(1999, 12, 01), ESexo.FEMININO, 1.6, 80.0,
-//				EEstadoCivil.SOLTEIRO);
-
 //		Aluno aluno = new Aluno();
 //
 //		System.out.print("Digite o CPF do Aluno_____________________ ");
@@ -55,9 +58,13 @@ public class TestaAluno {
 //		System.out.println("\n" + xanaina.toString());
 //		System.out.println(aluno.toString());
 //		
-//		AlunoDAO alunoDAO = new AlunoDAO();
-//		System.out.println(alunoDAO.consulta(99988877766L).toString());
-//		alunoDAO.insere(xanaina);
+		AlunoDAO alunoDAO = new AlunoDAO();
+//		Aluno aluno = alunoDAO.consulta("99988877700");
+//		aluno.setCPF("99988877766");
+//		aluno.setSexo(ESexo.MASCULINO);
+//		alunoDAO.insere(aluno);
+		alunoDAO.exclui("99988877766");
+//		System.out.println(aluno.toString());
 
 	}
 }
