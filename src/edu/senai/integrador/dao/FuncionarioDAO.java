@@ -21,12 +21,14 @@ import edu.senai.integrador.beans.enumeradores.ESexo;
 import edu.senai.integrador.beans.exception.FuncionarioException;
 import edu.senai.integrador.beans.exception.PessoaException;
 import edu.senai.integrador.dao.sql.ColunasFuncionario;
-import edu.senai.integrador.dao.sql.EXmlComandos;
-import edu.senai.integrador.dao.sql.EXmlTabelas;
+import edu.senai.integrador.dao.sql.SqlComandos;
 import edu.senai.integrador.dao.sql.SqlSintaxe;
+import edu.senai.integrador.dao.sql.SqlTabelas;
 
 public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 	private SqlSintaxe sq = new SqlSintaxe();
+	private SqlComandos comandos = new SqlComandos();
+	private SqlTabelas tabelas = new SqlTabelas();
 	private ColunasFuncionario colunas = new ColunasFuncionario();
 
 	private Funcionario constroiFuncionario(ResultSet rs) throws DAOException{
@@ -49,36 +51,36 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 
 	private String[] constroiInsert (Funcionario funcionario){
 		String[] insert = new String[2];
-		insert[0] = EXmlComandos.INSERT_PESSOA.toString() + 
+		insert[0] = comandos.INSERT_PESSOA.toString() + 
 			    sq.VARCHAR + funcionario.getCPF() + sq.VARCHAR + sq.COMMA +
 			    sq.VARCHAR + funcionario.getNome()+ sq.VARCHAR + sq.COMMA +
 						     funcionario.getEstadoCivil().ordinal() + sq.COMMA + 
 						     funcionario.getSexo().ordinal() + sq.COMMA + 
-   sq.VARCHAR + Date.valueOf(funcionario.getDataDeNascimento()) + sq.VARCHAR + sq.END_LINE;
+   sq.VARCHAR + Date.valueOf(funcionario.getDataDeNascimento()) + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
 		
-		insert[1] = EXmlComandos.INSERT_FUNC.toString() +  
+		insert[1] = comandos.INSERT_FUNC.toString() +  
 				sq.VARCHAR + funcionario.getCPF() + sq.VARCHAR + sq.COMMA +
 									  funcionario.getEscolaridade().ordinal() + sq.COMMA + 
-				sq.VARCHAR + funcionario.getCtps() + sq.VARCHAR + sq.END_LINE;
+				sq.VARCHAR + funcionario.getCtps() + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
 		return insert;
 	}
 	
 	private String[] constroiUpdate(Funcionario funcionario) {
 		String[] update = { sq.UPDATE + " ", sq.UPDATE + " " };
 		
-		update[0] += EXmlTabelas.FUNCIONARIO.toString() + 
+		update[0] += tabelas.FUNCIONARIO.toString() + 
 					 sq.SET + 
 				colunas.ESCOLARIDADE + sq.EQUALS + funcionario.getEscolaridade().ordinal() + sq.COMMA + 
 				colunas.CTPS + sq.EQUALS + funcionario.getCtps() + 
-					 sq.WHERE + colunas.CPF + sq.EQUALS + sq.VARCHAR + funcionario.getCPF() + sq.VARCHAR + sq.END_LINE;
+					 sq.WHERE + colunas.CPF + sq.EQUALS + sq.VARCHAR + funcionario.getCPF() + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
 		
-		update[1] += EXmlTabelas.PESSOA.toString() + sq.SET + 
+		update[1] += tabelas.PESSOA.toString() + sq.SET + 
 			    colunas.NOME + sq.EQUALS + sq.VARCHAR + funcionario.getNome() + sq.VARCHAR + sq.COMMA + 
 			    colunas.DATA_NASC + sq.EQUALS + sq.VARCHAR + Date.valueOf(funcionario.getDataDeNascimento()) + sq.VARCHAR + sq.COMMA + 
 			    colunas.ESTAD0_CIVIL + sq.EQUALS + funcionario.getEstadoCivil().ordinal() + sq.COMMA + 
 			    colunas.SEXO + sq.EQUALS + funcionario.getSexo().ordinal() + 
 					 sq.WHERE + colunas.CPF + sq.EQUALS + sq.VARCHAR + 
-					 funcionario.getCPF() + sq.VARCHAR + sq.END_LINE;
+					 funcionario.getCPF() + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
 
 		return update;
 	}
@@ -87,7 +89,7 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 	public Funcionario consulta(String funcionario) throws ConexaoException, DAOException {
 		Connection conexao = Conexao.getConexao();
 		try {
-			PreparedStatement pst = conexao.prepareStatement(EXmlComandos.SELECT_FUNCIONARIO.toString());
+			PreparedStatement pst = conexao.prepareStatement(comandos.SELECT_FUNCIONARIO.toString());
 			pst.setString(1, funcionario);
 			ResultSet rs = pst.executeQuery();
 			return rs.first() ? constroiFuncionario(rs) : null;
@@ -104,7 +106,7 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 		Map<String, Funcionario> pessoas = new HashMap<String, Funcionario>();
 		try {
 			Statement st = conexao.createStatement();
-			ResultSet rs = st.executeQuery(EXmlComandos.SELECT_FUNCIONARIOS.toString());
+			ResultSet rs = st.executeQuery(comandos.SELECT_FUNCIONARIOS.toString());
 			while (rs.next()) {
 				pessoas.put(rs.getString(colunas.CPF.toString()), constroiFuncionario(rs));
 			}
@@ -220,24 +222,24 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 				Statement st = conexao.createStatement();
 				st.execute(sq.DELETE + 
 						   sq.FROM + 
-				  EXmlTabelas.FUNCIONARIO + 
+				  tabelas.FUNCIONARIO + 
 						   sq.WHERE +
 					  colunas.CPF +
 						   sq.EQUALS +
 						   sq.VARCHAR + 
 						   	  codigo + 
 						   sq.VARCHAR + 
-						   sq.END_LINE);
+						   sq.CLOSE_PAR + sq.SEMI_COLON);
 				st.execute(sq.DELETE + 
 						   sq.FROM + 
-				  EXmlTabelas.PESSOA + 
+				  tabelas.PESSOA + 
 						   sq.WHERE + 
 				      colunas.CPF +
 						   sq.EQUALS +
 						   sq.VARCHAR + 
 						      codigo + 
 						   sq.VARCHAR + 
-						   sq.END_LINE);
+						   sq.CLOSE_PAR + sq.SEMI_COLON);
 			} catch (SQLException e) {
 				throw new DAOException(EDaoErros.INSERE_DADO, e.getMessage(), this.getClass());
 			} finally {
@@ -254,24 +256,24 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 			Statement st = conexao.createStatement();
 			st.execute(sq.DELETE +
 					   sq.FROM + 
-			  EXmlTabelas.FUNCIONARIO + 
+			  tabelas.FUNCIONARIO + 
 					   sq.WHERE + 
 		   	      colunas.CPF +
 					   sq.EQUALS +
 					   sq.VARCHAR + 
 	   	      funcionario.getCPF() + 
 					   sq.VARCHAR + 
-					   sq.END_LINE);
+					   sq.CLOSE_PAR + sq.SEMI_COLON);
 			st.execute(sq.DELETE + 
 					   sq.FROM + 
-		      EXmlTabelas.PESSOA + 
+		      tabelas.PESSOA + 
 					   sq.WHERE + 
 	   		      colunas.CPF +
 					   sq.EQUALS +
 					   sq.VARCHAR + 
 			  funcionario.getCPF() + 
 					   sq.VARCHAR + 
-					   sq.END_LINE);
+					   sq.CLOSE_PAR + sq.SEMI_COLON);
 			return true;
 		} catch (SQLException e) {
 			throw new DAOException(EDaoErros.INSERE_DADO, e.getMessage(), this.getClass());

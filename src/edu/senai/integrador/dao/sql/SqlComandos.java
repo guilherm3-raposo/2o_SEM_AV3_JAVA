@@ -1,16 +1,18 @@
 package edu.senai.integrador.dao.sql;
 
 public class SqlComandos {
-	public final String INSERT_PESSOA		= (LeXml.getTag("comandos")[0]);
-	public final String INSERT_ALUNO		= (LeXml.getTag("comandos")[1]);
-	public final String INSERT_FUNC			= (LeXml.getTag("comandos")[2]);
-	public final String SELECT_ALUNOS		= (LeXml.getTag("comandos")[3]);
-	public final String SELECT_ALUNO		= (LeXml.getTag("comandos")[4]);
-	public final String SELECT_FUNCIONARIOS	= (LeXml.getTag("comandos")[5]);
-	public final String SELECT_FUNCIONARIO	= (LeXml.getTag("comandos")[6]);
-	public final String SELECT_MINISTRANTES	= (LeXml.getTag("comandos")[7]);
-	public final String SELECT_PARTICIPANTES= (LeXml.getTag("comandos")[8]);
-	public final String SELECT_MODALIDADE	= (LeXml.getTag("comandos")[9]);
-	public final String SELECT_TURMAS 		= (LeXml.getTag("comandos")[10]);
-	public final String SELECT_TURMA 		= (LeXml.getTag("comandos")[11]);
+	String[] tags = LeXml.getTag("comandos", "configBanco.xml");
+	
+	public final String INSERT_PESSOA		= (tags[0]);
+	public final String INSERT_ALUNO		= (tags[1]);
+	public final String INSERT_FUNC			= (tags[2]);
+	public final String SELECT_ALUNOS		= (tags[3]);
+	public final String SELECT_ALUNO		= (tags[4]);
+	public final String SELECT_FUNCIONARIOS	= (tags[5]);
+	public final String SELECT_FUNCIONARIO	= (tags[6]);
+	public final String SELECT_MINISTRANTES	= (tags[7]);
+	public final String SELECT_PARTICIPANTES= (tags[8]);
+	public final String SELECT_MODALIDADE	= (tags[9]);
+	public final String SELECT_TURMAS 		= (tags[10]);
+	public final String SELECT_TURMA 		= (tags[11]);
 }

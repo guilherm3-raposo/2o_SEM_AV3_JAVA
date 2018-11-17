@@ -26,7 +26,6 @@ public class Funcionario extends Pessoa {
 		this.setEscolaridade(escolaridade);
 		super.setNome(nome);
 		super.setDataDeNascimento(dataDeNascimento);
-		Validacoes.validaIdadeFuncionario(super.getDataDeNascimento());
 		super.setSexo(sexo);
 		super.setEstadoCivil(estadoCivil);
 	}

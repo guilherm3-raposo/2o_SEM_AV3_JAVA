@@ -11,10 +11,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class LeXml {
-	static Document documento = getXml(setArquivo());
+import edu.senai.integrador.ferramentas.LeitorArquivo;
 
-	public static String[] getTag(String nomeTag) {
+public class LeXml {
+	public static String[] getTag(String nomeTag, String caminhoArquivo) {
+		Document documento = getXml(LeitorArquivo.testaArquivo(caminhoArquivo));
+		
 		NodeList tags = documento.getElementsByTagName(nomeTag).item(0).getChildNodes();
 		int tamanho = tags.getLength() / 2;
 		String[] tabelas = new String[tamanho];
@@ -25,27 +27,6 @@ public class LeXml {
 		return tabelas;
 	}
 	
-	private static File setArquivo() {
-		String workspace = System.getProperty("user.dir");
-		File dados = new File(workspace + "/dados");
-		File config = new File(dados + "/configBanco.xml");
-
-		if (!dados.exists()) {
-			dados.mkdir();
-		}
-		if (config.exists() && !config.isDirectory()) {
-			return config;
-		} else {
-			try {
-				config.createNewFile();
-				return config;
-			} catch (IOException e) {
-
-			}
-		}
-		return config;
-	}
-
 	private static Document getXml(File config) {
 		try {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

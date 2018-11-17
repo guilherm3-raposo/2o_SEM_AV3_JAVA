@@ -1,9 +1,15 @@
-package edu.senai.projetoModafackaIntegrador.populadores2;
+package edu.senai.integrador.z.populadores;
 
 public enum ENomes {
-	UM("Ana", "Ambrósio", "Aquino"), DOIS("Beatriz", "Berenice", "Barros"), TRES("Carla", "Castro", "Cardoso"),
-	QUATRO("Diana", "DiMalo", "Dinklage"), CINCO("Esther", "Elara", "Elsa"), SEIS("Fabiana", "Figueira", "Fogaça"),
-	SETE("Gabriela", "Genézio", "Gomes"), OITO("Heloísa", "Hermann", "Hemmer"), NOVE("Ilara", "Ismael", "Irma"),
+	UM("Ana", "Ambrósio", "Aquino"), 
+	DOIS("Beatriz", "Berenice", "Barros"), 
+	TRES("Carla", "Castro", "Cardoso"),
+	QUATRO("Diana", "DiMalo", "Dinklage"), 
+	CINCO("Esther", "Elara", "Elsa"), 
+	SEIS("Fabiana", "Figueira", "Fogaça"),
+	SETE("Gabriela", "Genézio", "Gomes"), 
+	OITO("Heloísa", "Hermann", "Hemmer"), 
+	NOVE("Ilara", "Ismael", "Irma"),
 	DEZ("Janete", "Jonas", "Jill");
 
 	private String nome;

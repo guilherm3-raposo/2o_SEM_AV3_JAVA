@@ -1,4 +1,4 @@
-package edu.senai.projetoModafackaIntegrador.populadores2;
+package edu.senai.integrador.z.populadores;
 
 import java.time.LocalDate;
 import java.util.Random;

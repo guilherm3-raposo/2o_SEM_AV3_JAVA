@@ -1,7 +1,10 @@
 package edu.senai.integrador.beans.enumeradores;
 
 public enum EEndereco {
-	RUA("R.", "Rua"), AVENIDA("Av.", "Avenida"), ALAMEDA("Al.", "Alameda"), RODOVIA("Rd.", "Rodovia"),
+	RUA("R.", "Rua"), 
+	AVENIDA("Av.", "Avenida"), 
+	ALAMEDA("Al.", "Alameda"), 
+	RODOVIA("Rd.", "Rodovia"),
 	VILA("V.", "Vila");
 
 	private String sigla;

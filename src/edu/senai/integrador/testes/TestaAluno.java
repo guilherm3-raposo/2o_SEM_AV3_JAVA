@@ -1,27 +1,25 @@
 package edu.senai.integrador.testes;
 
-import java.time.LocalDate;
-
 import edu.senai.integrador.bancodedados.conexao.ConexaoException;
 import edu.senai.integrador.beans.Aluno;
-import edu.senai.integrador.beans.enumeradores.EEstadoCivil;
-import edu.senai.integrador.beans.enumeradores.ESexo;
 import edu.senai.integrador.beans.exception.PessoaException;
 import edu.senai.integrador.dao.AlunoDAO;
 import edu.senai.integrador.dao.DAOException;
+import edu.senai.integrador.ferramentas.LeituraTerminal;
 
 public class TestaAluno {
 	public static void main(String[] args) throws PessoaException, ConexaoException, DAOException {
-//		Aluno aluno = new Aluno();
-//
+		Aluno aluno = new Aluno();
+
 //		System.out.print("Digite o CPF do Aluno_____________________ ");
 //		aluno.setCPF(LeituraTerminal.leCpf());
 //
 //		System.out.print("Digite o nome do aluno____________________ ");
 //		aluno.setNome(LeituraTerminal.leNome());
-//
-//		System.out.print("Digite a data de nascimento do aluno______ ");
-//		aluno.setDataDeNascimento(LeituraTerminal.leData());
+
+		System.out.print("Digite a data de nascimento do aluno______ ");
+		aluno.setDataDeNascimento(LeituraTerminal.leData(true));
+		System.out.println(aluno.getDataDeNascimento() + "\n" + aluno.getIdadeCompleta());
 //
 //		System.out.print("Digite o sexo do aluno (M/F)______________ ");
 //		aluno.setSexo(LeituraTerminal.leSexo());
@@ -58,12 +56,12 @@ public class TestaAluno {
 //		System.out.println("\n" + xanaina.toString());
 //		System.out.println(aluno.toString());
 //		
-		AlunoDAO alunoDAO = new AlunoDAO();
+//		AlunoDAO alunoDAO = new AlunoDAO();
 //		Aluno aluno = alunoDAO.consulta("99988877700");
 //		aluno.setCPF("99988877766");
 //		aluno.setSexo(ESexo.MASCULINO);
 //		alunoDAO.insere(aluno);
-		alunoDAO.exclui("99988877766");
+//		alunoDAO.exclui("99988877766");
 //		System.out.println(aluno.toString());
 
 	}

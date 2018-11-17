@@ -23,7 +23,6 @@ public class Aluno extends Pessoa {
 		super.setCPF(cpf);
 		super.setNome(nome);
 		super.setDataDeNascimento(dataDeNascimento);
-		Validacoes.validaIdadeAluno(super.getDataDeNascimento());
 		super.setSexo(sexo);
 		this.setAltura(altura);
 		this.setPeso(peso);

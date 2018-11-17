@@ -1,12 +1,12 @@
 package edu.senai.integrador.beans;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 public class Turma {
 	private int idTurma;
-	private LocalDateTime horarioInicio;
+	private LocalTime horarioInicio;
 	private int duracao;
 	private Map<String, Funcionario> ministrantes;
 	private Map<String, Aluno> participantes;
@@ -19,7 +19,7 @@ public class Turma {
 	public Turma() {
 	}
 
-	public Turma(int idTurma, LocalDateTime horarioInicio, int duracao, Map<String, Funcionario> ministrantes,
+	public Turma(int idTurma, LocalTime horarioInicio, int duracao, Map<String, Funcionario> ministrantes,
 			Map<String, Aluno> participantes, Modalidade modalidade) {
 		setIdTurma(idTurma);
 		setHorarioInicio(horarioInicio);
@@ -37,11 +37,11 @@ public class Turma {
 		this.idTurma = idTurma;
 	}
 
-	public LocalDateTime getHorarioInicio() {
+	public LocalTime getHorarioInicio() {
 		return horarioInicio;
 	}
 
-	public void setHorarioInicio(LocalDateTime horarioInicio) {
+	public void setHorarioInicio(LocalTime horarioInicio) {
 		this.horarioInicio = horarioInicio;
 	}
 
@@ -101,7 +101,7 @@ public class Turma {
 				getModalidade().getIdModalidade().toUpperCase() + 
 			  "\n________________________________________________\n" + 
 			  "\nHorário_________ " + getHorario() + "\n" +
-			  "\nDias____________________________________________\n\n" + getModalidade().getSemana() +
+			  "\nDias____________________________________________\n\n" + getModalidade().getSemanaFormatada() +
 				(getMinistrantes().size() == 1 ? 
 			  "\nMINISTRANTE_____________________________________\n\n" :
 			  "\nMINISTRANTES____________________________________\n\n") + getNomeMinistrantes() + "\n" + 

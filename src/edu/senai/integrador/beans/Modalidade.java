@@ -22,7 +22,12 @@ public class Modalidade {
 		this.idModalidade = idModalidade;
 	}
 
+	
 	public String getSemana() {
+		return semana;
+	}
+
+	public String getSemanaFormatada() {
 		String semanaFormatada = "";
 		char[] dias = semana.toCharArray();
 		if (dias[0] == 's') semanaFormatada += "Segunda\n";

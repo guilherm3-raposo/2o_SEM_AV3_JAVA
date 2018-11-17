@@ -1,60 +1,86 @@
 package edu.senai.integrador.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import edu.senai.integrador.bancodedados.conexao.Conexao;
 import edu.senai.integrador.bancodedados.conexao.ConexaoException;
 import edu.senai.integrador.beans.Aluno;
 import edu.senai.integrador.beans.Funcionario;
-import edu.senai.integrador.dao.sql.EXmlColunas;
-import edu.senai.integrador.dao.sql.EXmlComandos;
+import edu.senai.integrador.dao.sql.ColunasParticipantes;
+import edu.senai.integrador.dao.sql.SqlSintaxe;
+import edu.senai.integrador.dao.sql.SqlTabelas;
 
 public class ParticipantesDAO {
-
-	public Map<String, Aluno> consultaAlunos(int codigo) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
-		Map<String, Aluno> participantes = new HashMap<String, Aluno>();
-		AlunoDAO alunoDAO = new AlunoDAO();
-
-		try {
-			PreparedStatement pst = conexao.prepareStatement(EXmlComandos.SELECT_PARTICIPANTES.toString());
-			pst.setInt(1, codigo);
-			ResultSet rs = pst.executeQuery();
-			while (rs.next()) {
-					participantes.put(rs.getString(EXmlColunas.ID_ALUNO.toString()),
-							alunoDAO.consulta(rs.getString(EXmlColunas.ID_ALUNO.toString())));
-			}
-		} catch (Exception e) {
-			throw new DAOException(EDaoErros.CONSULTA_DADO, e.getMessage(), this.getClass());
-		} finally {
-			Conexao.fechaConexao();
-		}
-		return participantes;
-	}
+	SqlSintaxe sq = new SqlSintaxe();
+	SqlTabelas tabelas = new SqlTabelas();
+	ColunasParticipantes colunas = new ColunasParticipantes();
 	
-	public Map<String, Funcionario> consultaFuncionarios(int codigo) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
-		Map<String, Funcionario> ministrantes = new HashMap<String, Funcionario>();
-		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+	private List<String> constroiInsert(int idTurma, List<String> pessoas, boolean aluno) {
+		List<String> insert = new ArrayList<String>();
+		
+		pessoas.forEach(cpf -> {
+			insert.add(sq.INSERT + 
+					   sq.INTO + 
+				  tabelas.PARTICIPANTES + " " + sq.OPEN_PAR + 
+				  colunas.ID_TURMA + sq.COMMA + 
+		 (aluno ? colunas.ID_ALUNO : colunas.ID_FUNCI) + sq.CLOSE_PAR + " " +
+				  	   sq.VALUES +
+		    sq.OPEN_PAR + idTurma + sq.COMMA +
+			 sq.VARCHAR + cpf + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON);
+		});
+		return insert;
+	}
 
-		try {
-			PreparedStatement pst = conexao.prepareStatement(EXmlComandos.SELECT_MINISTRANTES.toString());
-			pst.setInt(1, codigo);
-			ResultSet rs = pst.executeQuery();
-			while (rs.next()) {
-					ministrantes.put(rs.getString(EXmlColunas.ID_FUNCIO.toString()),
-							funcionarioDAO.consulta(rs.getString(EXmlColunas.ID_FUNCIO.toString())));
+	public Map<String, Funcionario> consultaMinistrantes(Map<String, Funcionario> ministrantes)
+			throws ConexaoException, DAOException {
+
+		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+		ministrantes.forEach((cpf, ministrante) -> {
+			try {
+				ministrantes.replace(cpf, funcionarioDAO.consulta(cpf));
+			} catch (ConexaoException | DAOException e) {
 			}
-		} catch (Exception e) {
-			throw new DAOException(EDaoErros.CONSULTA_DADO, e.getMessage(), this.getClass());
-		} finally {
-			Conexao.fechaConexao();
-		}
+		});
+		ministrantes.remove(null);
 		return ministrantes;
 	}
 	
+	public Map<String, Aluno> consultaParticipantes(Map<String, Aluno> participantes)
+			throws ConexaoException, DAOException {
+		
+		AlunoDAO alunoDAO = new AlunoDAO();
+		participantes.forEach((cpf, participante) -> {
+			try {
+				participantes.replace(cpf, alunoDAO.consulta(cpf));
+			} catch (ConexaoException | DAOException e) {
+			}
+		});
+		participantes.remove(null);
+		return participantes;
+	}
+
+	public boolean insereParticipantes(int idTurma, List<String> funcionarios, List<String> alunos) {
+		try {
+			Connection conexao = Conexao.getConexao();
+			Statement st = conexao.createStatement();
+			List<String> insertList = constroiInsert(idTurma, funcionarios, false);
+			for (String insert : insertList) {
+				st.execute(insert);
+			}
+			insertList = constroiInsert(idTurma, alunos, true);
+			for (String insert : insertList) {
+				st.execute(insert);
+			}
+		} catch (ConexaoException e) {
+			// TODO Auto-generated catch block
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+		}
+		return true;
+	}
 }

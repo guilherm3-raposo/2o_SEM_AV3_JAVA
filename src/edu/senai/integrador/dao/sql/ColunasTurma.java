@@ -1,7 +1,7 @@
 package edu.senai.integrador.dao.sql;
 
 public class ColunasTurma {
-	private String[] tags = LeXml.getTag("colunasTurma");
+	private String[] tags = LeXml.getTag("colunasTurma", "configBanco.xml");
 	
 	public final String ID_TURMA	 	= (tags[0]);
 	public final String ID_MODALIDADE	= (tags[1]);

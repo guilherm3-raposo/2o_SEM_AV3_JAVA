@@ -5,55 +5,79 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import edu.senai.integrador.bancodedados.conexao.Conexao;
 import edu.senai.integrador.bancodedados.conexao.ConexaoException;
+import edu.senai.integrador.beans.Aluno;
+import edu.senai.integrador.beans.Funcionario;
 import edu.senai.integrador.beans.Turma;
+import edu.senai.integrador.dao.sql.ColunasModalidade;
+import edu.senai.integrador.dao.sql.ColunasParticipantes;
 import edu.senai.integrador.dao.sql.ColunasTurma;
 import edu.senai.integrador.dao.sql.SqlComandos;
 import edu.senai.integrador.dao.sql.SqlSintaxe;
+import edu.senai.integrador.dao.sql.SqlTabelas;
 
 public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 	SqlSintaxe sq = new SqlSintaxe();
 	SqlComandos comandos = new SqlComandos();
+	SqlTabelas tabelas = new SqlTabelas();
 	ColunasTurma colunas = new ColunasTurma();
+	ColunasModalidade colMod = new ColunasModalidade();
+	ColunasParticipantes colPart = new ColunasParticipantes();
 	
 	
 	public Turma constroiTurma(ResultSet rs, int idTurma) {
 		try {
-			ParticipantesDAO participantesDAO = new ParticipantesDAO();
 			ModalidadeDao modalidadeDao = new ModalidadeDao();
+			Map<String, Funcionario> ministrantes = new HashMap<String, Funcionario>();
+			Map<String, Aluno> participantes = new HashMap<String, Aluno>();
+			ParticipantesDAO participantesDAO = new ParticipantesDAO();
+			Turma turma = new Turma();
 
-			if(rs.first()) {
-				Turma turma = new Turma(idTurma,
-					LocalDateTime.parse(rs.getString(colunas.HORA_INICIO.toString()),DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-				   					    rs.getInt(colunas.DURACAO.toString()), 
-					 					participantesDAO.consultaFuncionarios(idTurma), 
-					 					participantesDAO.consultaAlunos(idTurma),
-				 modalidadeDao.consulta(rs.getString(colunas.ID_MODALIDADE.toString())));
-			return turma;	
+			while(rs.next()) {
+				turma.setIdTurma(idTurma);
+				turma.setHorarioInicio(LocalTime.parse(rs.getString(colunas.HORA_INICIO), DateTimeFormatter.ofPattern("HH:mm:ss")));
+				turma.setModalidade(modalidadeDao.consulta(rs.getString(colMod.ID_MODALI)));
+				if(colPart.ID_ALUNO != null) participantes.put(rs.getString("CPFAluno"), null);
+				if(colPart.ID_FUNCI != null) ministrantes.put(rs.getString("CPFFuncionario"), null);
 			}
+			turma.setMinistrantes(participantesDAO.consultaMinistrantes(ministrantes));
+			turma.setParticipantes(participantesDAO.consultaParticipantes(participantes));
+			
+			return turma;	
 		} catch (SQLException | ConexaoException | DAOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return null;
 	}
-
+	
+	private String constroiInsert (Turma turma){
+		String insert = sq.INSERT + 
+						sq.INTO + 
+				   tabelas.TURMA + " " +
+				   		sq.VALUES + sq.OPEN_PAR +
+					 turma.getIdTurma() + sq.COMMA + sq.VARCHAR + 
+	 turma.getModalidade().getIdModalidade() + sq.VARCHAR + sq.COMMA + sq.VARCHAR + 
+	 				 turma.getHorarioInicio().format(DateTimeFormatter.ofPattern("HH:mm:ss")) + sq.VARCHAR + sq.COMMA + 
+	 				 turma.getDuracao() + sq.CLOSE_PAR + sq.SEMI_COLON;
+		return insert;
+	}
+	
 	@Override
 	public Turma consulta(Integer codigo) throws ConexaoException, DAOException {
 		Connection conexao = Conexao.getConexao();
 		try {
-			PreparedStatement pst = conexao.prepareStatement(comandos.SELECT_TURMA.toString());
+			PreparedStatement pst = conexao.prepareStatement(comandos.SELECT_TURMA);
 			pst.setInt(1, codigo);
 			ResultSet rs = pst.executeQuery();
-			Turma turma = constroiTurma(rs, codigo);
-			return turma;
+			return constroiTurma(rs, codigo);
 		} catch (Exception e) {
 			throw new DAOException(EDaoErros.CONSULTA_DADO, e.getMessage(), this.getClass());
 		} finally {
@@ -68,7 +92,7 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 		
 		try {
 			Statement st = conexao.createStatement();
-			ResultSet rs = st.executeQuery(comandos.SELECT_TURMAS.toString());
+			ResultSet rs = st.executeQuery(comandos.SELECT_TURMAS);
 			int idTurma = 1;
 			while (rs.next()) {
 				turmas.put(idTurma, consulta(idTurma));
@@ -84,26 +108,74 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 
 	@Override
 	public List<Turma> consultaFaixa(Integer... faixa) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		List<Turma> turmas = new ArrayList<Turma>();
+		for (int i : faixa) {
+			turmas.add(consulta(i));
+		}
+		return turmas;
 	}
 
 	@Override
-	public boolean insere(Turma objeto) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean insere(Turma turma) throws ConexaoException, DAOException {
+		Connection conexao = Conexao.getConexao();
+		try {
+			ModalidadeDao modalidadeDao = new ModalidadeDao();
+			ParticipantesDAO participantesDAO = new ParticipantesDAO();
+			modalidadeDao.insere(turma.getModalidade());
+			Statement st = conexao.createStatement();
+			String insert = constroiInsert(turma);
+			st.execute(insert);
+			List<String> funcionarios = new ArrayList<>();
+			List<String> alunos = new ArrayList<>();
+			turma.getMinistrantes().forEach((cpf, funcionario) -> funcionarios.add(cpf));
+			turma.getParticipantes().forEach((cpf, aluno) -> alunos.add(cpf));
+			participantesDAO.insereParticipantes(turma.getIdTurma(), funcionarios, alunos);
+			return true;
+		} catch (SQLException e) {
+			throw new DAOException(EDaoErros.SQL_INVALIDO, e.getMessage(), this.getClass());
+		} finally {
+			Conexao.fechaConexao();
+		}
 	}
 
 	@Override
-	public List<Turma> insereVarios(List<Turma> objetos) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Turma> insereVarios(List<Turma> turmas) throws ConexaoException, DAOException {
+		Connection conexao = Conexao.getConexao();
+		List<Turma> naoInseridos = new ArrayList<Turma>();
+		Turma naoInserido = new Turma();
+		try {
+			Statement st = conexao.createStatement();
+			for (Turma turma : turmas) {
+				st.execute(constroiInsert(turma));
+				naoInserido = turma;
+			}
+		} catch (SQLException e) {
+			naoInseridos.add(naoInserido);
+		}
+		return naoInseridos;
 	}
 
 	@Override
-	public List<Turma> insereVarios(Map<Integer, Turma> objetos) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Turma> insereVarios(Map<Integer, Turma> turmas) throws ConexaoException, DAOException {
+		Connection conexao = Conexao.getConexao();
+		List<Turma> naoInseridos = new ArrayList<Turma>();
+		try {
+			Statement st = conexao.createStatement();
+			turmas.forEach((id, turma) -> {
+				Turma naoInserido = new Turma();
+				try {
+					st.execute(constroiInsert(turma));
+					naoInserido = turma;
+				} catch (SQLException e) {
+					naoInseridos.add(naoInserido);
+				}
+			});
+		} catch (SQLException e) {
+			
+		} finally {
+			Conexao.fechaConexao();
+		}
+		return naoInseridos;
 	}
 
 	@Override
@@ -113,8 +185,25 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 	}
 
 	@Override
-	public boolean altera(Turma objeto) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
+	public boolean altera(Turma turma) throws ConexaoException, DAOException {
+		Connection conexao = Conexao.getConexao();
+		try {
+			Statement st = conexao.createStatement();
+			return st.execute(sq.UPDATE +
+						 tabelas.TURMA +
+						  	  sq.SET + 
+					  	 colunas.ID_MODALIDADE + sq.EQUALS + 
+			  sq.VARCHAR + turma.getModalidade().getIdModalidade() + sq.VARCHAR + sq.COMMA +
+					  	 colunas.HORA_INICIO + sq.EQUALS + 
+			  sq.VARCHAR + turma.getHorarioInicio() + sq.VARCHAR + sq.COMMA +
+					 	 colunas.DURACAO + sq.EQUALS +
+					 	   turma.getDuracao() + " " + 
+					 	  	  sq.WHERE + 
+					 	 colunas.ID_TURMA + sq.EQUALS + 
+					 	   turma.getIdTurma() + sq.SEMI_COLON);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+		}
 		return false;
 	}
 
@@ -130,4 +219,38 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 		return false;
 	}
 
+	public static void main(String[] args) throws ConexaoException, DAOException, SQLException {
+		TurmaDAO turmaDAO = new TurmaDAO();
+		AlunoDAO alunoDAO = new AlunoDAO();
+		Turma turma = turmaDAO.consulta(1);
+//		System.out.println(turma);
+//		turma.setIdTurma(2);
+//		Map<String, Aluno> participantes = turma.getParticipantes();
+//		participantes.put("99988877716", alunoDAO.consulta("99988877716"));
+//		participantes.put("99988877714", alunoDAO.consulta("99988877714"));
+//
+//		turma.setParticipantes(participantes);
+//		System.out.println(turma);
+//		turmaDAO.insere(turma);
+		
+		SqlSintaxe sq = new SqlSintaxe();
+		SqlComandos comandos = new SqlComandos();
+		SqlTabelas tabelas = new SqlTabelas();
+		ColunasTurma colunas = new ColunasTurma();
+		ColunasModalidade colMod = new ColunasModalidade();
+		ColunasParticipantes colPart = new ColunasParticipantes();
+
+		System.out.println(sq.UPDATE +
+				  tabelas.TURMA +
+				  	   sq.SET + 
+			  	  colunas.ID_MODALIDADE + sq.EQUALS + 
+	   sq.VARCHAR + turma.getModalidade().getIdModalidade() + sq.VARCHAR + sq.COMMA +
+			  	  colunas.HORA_INICIO + sq.EQUALS + 
+	   sq.VARCHAR + turma.getHorarioInicio() + sq.VARCHAR + sq.COMMA +
+			 	  colunas.DURACAO + sq.EQUALS +
+			 	    turma.getDuracao() + " " + 
+			 	  	   sq.WHERE + 
+			 	  colunas.ID_TURMA + sq.EQUALS + 
+			 	    turma.getIdTurma() + sq.SEMI_COLON);
+	}
 }

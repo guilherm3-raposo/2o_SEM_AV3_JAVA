@@ -7,7 +7,8 @@
 			<aluno>Aluno</aluno>
 			<funcionario>Funcionario</funcionario>
 			<turma>Turma</turma>
-			<modalidade>Modalidade</modalidade>						
+			<modalidade>Modalidade</modalidade>		
+			<participantes>Participantes</participantes>				
 		</tabelas>
 
 		<colunasAluno>
@@ -33,7 +34,7 @@
 			<idTurma>idTurma</idTurma>
 			<idMod>idModalidade</idMod>
 			<inicio>horarioInicio</inicio>
-			<duracaoMinutos>duracaoMinutos</duracaoMinutos>
+			<duracaoMinutos>duracao</duracaoMinutos>
 		</colunasTurma>
 		
 		<colunasParticipantes>
@@ -102,8 +103,12 @@
 			<database>DATABASE </database>
 			<set>SET </set>
 			<equals>= </equals>
-			<end>);</end>
-			<close>;</close>
+			<semiColon>;</semiColon>
+			<openPar>(</openPar>
+			<closePar>)</closePar>
+			<alter>ALTER </alter>
+			<table>TABLE </table>
+			<column>COLUMN </column>
 		</sintaxe>
 		
 	</body>

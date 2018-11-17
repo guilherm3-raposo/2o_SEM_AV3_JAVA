@@ -57,37 +57,43 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 					aluno.getNome() + sq.VARCHAR + sq.COMMA + 
 					aluno.getEstadoCivil().ordinal() + sq.COMMA + 
 					aluno.getSexo().ordinal() + sq.COMMA + sq.VARCHAR +
-	   Date.valueOf(aluno.getDataDeNascimento()) + sq.VARCHAR + sq.END_LINE;
+	   Date.valueOf(aluno.getDataDeNascimento()) + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
 		
 		insert[1] = comandos.INSERT_ALUNO.toString() + sq.VARCHAR + 
 					aluno.getCPF() + sq.VARCHAR + sq.COMMA +
 					aluno.getAltura() + sq.COMMA + 
-					aluno.getPeso() + sq.END_LINE;
+					aluno.getPeso() + sq.CLOSE_PAR + sq.SEMI_COLON;
 		System.out.println(insert[0]);
 		System.out.println(insert[1]);
 		return insert;
 	}
 	
 	private String[] constroiUpdate (Aluno aluno) {
-		String[] update = { sq.UPDATE.toString(), sq.UPDATE.toString()};
+		String[] update = {sq.UPDATE, sq.UPDATE};
 
-		update[0] += tabelas.ALUNO.toString() + " " + 
-					 sq.SET + 
-					 colunas.ALTURA + sq.EQUALS + aluno.getAltura() + sq.COMMA + 
-					 colunas.PESO   + sq.EQUALS + aluno.getPeso() + 
-					 sq.WHERE +  
-					 colunas.CPF + 
-					 sq.EQUALS + sq.VARCHAR + 
-					 aluno.getCPF() + sq.VARCHAR + sq.CLOSE;
+		update[0] += tabelas.ALUNO + 
+					 	  sq.SET + 
+					 colunas.ALTURA + sq.EQUALS + 
+					   aluno.getAltura() + sq.COMMA + 
+					 colunas.PESO + sq.EQUALS + 
+					   aluno.getPeso() + 
+					   	  sq.WHERE +  
+					 colunas.CPF + sq.EQUALS + sq.VARCHAR + 
+					   aluno.getCPF() + sq.VARCHAR + sq.SEMI_COLON;
 
-		update[1] += tabelas.PESSOA.toString() + " " +
-					 sq.SET + 
-					 colunas.NOME + sq.EQUALS + sq.VARCHAR + aluno.getNome() + sq.VARCHAR + sq.COMMA + 
-					 colunas.DATA_NASC + sq.EQUALS + sq.VARCHAR + Date.valueOf(aluno.getDataDeNascimento()) + sq.VARCHAR + sq.COMMA + 
-					 colunas.ESTAD0_CIVIL + sq.EQUALS + aluno.getEstadoCivil().ordinal() + sq.COMMA + 
-					 colunas.SEXO + sq.EQUALS + aluno.getSexo().ordinal() + 
-					 sq.WHERE + colunas.CPF + sq.EQUALS + sq.VARCHAR + 
-					 aluno.getCPF() + sq.VARCHAR + sq.CLOSE;
+		update[1] += tabelas.PESSOA +
+					 	  sq.SET + 
+					 colunas.NOME + sq.EQUALS + sq.VARCHAR + 
+					   aluno.getNome() + sq.VARCHAR + sq.COMMA + 
+					 colunas.DATA_NASC + sq.EQUALS + sq.VARCHAR + 
+		  Date.valueOf(aluno.getDataDeNascimento()) + sq.VARCHAR + sq.COMMA + 
+					 colunas.ESTAD0_CIVIL + sq.EQUALS + 
+					   aluno.getEstadoCivil().ordinal() + sq.COMMA + 
+					 colunas.SEXO + sq.EQUALS + 
+					   aluno.getSexo().ordinal() + 
+					   	  sq.WHERE + 
+					 colunas.CPF + sq.EQUALS + sq.VARCHAR + 
+					   aluno.getCPF() + sq.VARCHAR + sq.SEMI_COLON;
 
 		System.out.println(update[0]);
 		System.out.println(update[1]);
@@ -230,14 +236,14 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 			Connection conexao = Conexao.getConexao();
 			try {
 				System.out.println(sq.DELETE.toString() + sq.FROM + tabelas.ALUNO + sq.WHERE + colunas.CPF + sq.EQUALS
-						+ sq.VARCHAR + codigo + sq.VARCHAR + sq.CLOSE);
+						+ sq.VARCHAR + codigo + sq.VARCHAR + sq.CLOSE_PAR);
 				System.out.println(sq.DELETE.toString() + sq.FROM + tabelas.PESSOA + sq.WHERE + colunas.CPF + sq.EQUALS
-						+ codigo + sq.VARCHAR + sq.CLOSE);
+						+ codigo + sq.VARCHAR + sq.CLOSE_PAR);
 				Statement st = conexao.createStatement();
 				st.execute(sq.DELETE.toString() + sq.FROM + tabelas.ALUNO + sq.WHERE
-						+ sq.VARCHAR + codigo + sq.VARCHAR + sq.CLOSE);
+						+ sq.VARCHAR + codigo + sq.VARCHAR + sq.CLOSE_PAR);
 				st.execute(sq.DELETE.toString() + sq.FROM + tabelas.PESSOA + sq.WHERE
-						+ codigo + sq.VARCHAR + sq.CLOSE);
+						+ codigo + sq.VARCHAR + sq.CLOSE_PAR);
 			} catch (SQLException e) {
 				throw new DAOException(EDaoErros.EXCLUI_DADO, e.getMessage(), this.getClass());
 			} finally {
@@ -252,17 +258,49 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 		Connection conexao = Conexao.getConexao();
 		try {
 			Statement st = conexao.createStatement();
-			st.execute(sq.DELETE.toString() + sq.FROM + tabelas.FUNCIONARIO + sq.WHERE
-					+ sq.VARCHAR + colunas.CPF + sq.VARCHAR + sq.EQUALS + aluno.getCPF()
-					+ sq.VARCHAR + sq.END_LINE);
-			st.execute(sq.DELETE.toString() + sq.FROM + tabelas.PESSOA + sq.WHERE
-					+ sq.VARCHAR + colunas.CPF + sq.VARCHAR + sq.EQUALS
-					+ sq.VARCHAR + aluno.getCPF() + sq.END_LINE);
+			st.execute(sq.DELETE + 
+					   sq.FROM + 
+				  tabelas.ALUNO + 
+				       sq.WHERE + 
+				  colunas.CPF + 
+				  	   sq.EQUALS + sq.VARCHAR +
+				  	aluno.getCPF() + sq.VARCHAR + sq.SEMI_COLON);
+			st.execute(sq.DELETE + 
+					   sq.FROM + 
+				  tabelas.PESSOA + 
+				  	   sq.WHERE + 
+				  colunas.CPF + 
+				  	   sq.EQUALS + sq.VARCHAR + 
+				  	aluno.getCPF() + sq.VARCHAR + sq.SEMI_COLON);
 			return true;
 		} catch (SQLException e) {
 			throw new DAOException(EDaoErros.EXCLUI_DADO, e.getMessage(), this.getClass());
 		} finally {
 			Conexao.fechaConexao();
 		}
+	}
+	public static void main(String[] args) throws ConexaoException, DAOException, PessoaException {
+		SqlSintaxe sq = new SqlSintaxe();
+		SqlComandos comandos = new SqlComandos();
+		SqlTabelas tabelas = new SqlTabelas();
+		ColunasAluno colunas = new ColunasAluno();
+		AlunoDAO alunoDAO = new AlunoDAO();
+		Aluno aluno = alunoDAO.consulta("99988877700");
+//		System.out.println(aluno);
+//		alunoDAO.exclui(aluno);
+		System.out.println(sq.DELETE + 
+				   sq.FROM + 
+			  tabelas.ALUNO + 
+			       sq.WHERE + 
+			  colunas.CPF + 
+			  	   sq.EQUALS + sq.VARCHAR +
+			  	aluno.getCPF() + sq.VARCHAR + sq.SEMI_COLON);
+		System.out.println(sq.DELETE + 
+				   sq.FROM + 
+			  tabelas.PESSOA + 
+			  	   sq.WHERE + 
+			  colunas.CPF + 
+			  	   sq.EQUALS + sq.VARCHAR + 
+			  	aluno.getCPF() + sq.VARCHAR + sq.SEMI_COLON);
 	}
 }

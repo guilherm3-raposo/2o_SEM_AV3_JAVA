@@ -81,7 +81,8 @@ public class LeituraTerminal {
 				Validacoes.validaMes(Integer.valueOf(leitura.substring(2, 4)));
 				Validacoes.validaAno(Integer.valueOf(leitura.substring(4, 8)));
 				LocalDate data = LocalDate.of(Integer.valueOf(leitura.substring(4, 8)),
-						Integer.valueOf(leitura.substring(2, 4)), Integer.valueOf(leitura.substring(0, 2)));
+											  Integer.valueOf(leitura.substring(2, 4)), 
+											  Integer.valueOf(leitura.substring(0, 2)));
 				if (aluno)
 					Validacoes.validaIdadeAluno(data);
 				else

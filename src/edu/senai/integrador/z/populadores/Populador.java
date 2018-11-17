@@ -1,6 +1,7 @@
-package edu.senai.projetoModafackaIntegrador.populadores2;
+package edu.senai.integrador.z.populadores;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import edu.senai.integrador.bancodedados.conexao.ConexaoException;
@@ -9,6 +10,7 @@ import edu.senai.integrador.beans.Funcionario;
 import edu.senai.integrador.dao.AlunoDAO;
 import edu.senai.integrador.dao.DAOException;
 import edu.senai.integrador.dao.FuncionarioDAO;
+import edu.senai.integrador.ferramentas.LeTxt;
 import edu.senai.integrador.ferramentas.LeituraTerminal;
 
 public class Populador {
@@ -48,5 +50,8 @@ public class Populador {
 		}
 
 		System.out.println("fim");
+		
+		List<String> cidades = LeTxt.getLista("/cidades.txt");
+		cidades.forEach(nome -> );
 	}
 }

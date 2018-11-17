@@ -1,7 +1,7 @@
 package edu.senai.integrador.dao.sql;
 
 public class ColunasPessoa {
-	private String[] tags = LeXml.getTag("colunasPessoa");
+	private String[] tags = LeXml.getTag("colunasPessoa", "configBanco.xml");
 
 	public final String CPF 		 = (tags[0]);
 	public final String NOME 		 = (tags[1]);
