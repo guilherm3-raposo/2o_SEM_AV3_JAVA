@@ -8,7 +8,6 @@ import edu.senai.integrador.beans.enumeradores.ESexo;
 import edu.senai.integrador.beans.exception.FuncionarioException;
 import edu.senai.integrador.beans.exception.PessoaException;
 import edu.senai.integrador.ferramentas.FormataDados;
-import edu.senai.integrador.ferramentas.Validacoes;
 
 public class Funcionario extends Pessoa {
 

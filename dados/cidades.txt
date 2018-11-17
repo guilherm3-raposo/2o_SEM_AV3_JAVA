@@ -35,7 +35,7 @@ Bela Vista do Toldo
 Belmonte
 Benedito Novo
 Biguaçu
-Blumenau *
+Blumenau 
 Bocaina do Sul
 Bom Jardim da Serra
 Bom Jesus
@@ -73,7 +73,7 @@ Coronel Freitas
 Coronel Martins
 Correia Pinto
 Corupá
-Criciúma *
+Criciúma 
 Cunha Porã
 Cunhataí
 Curitibanos
@@ -86,7 +86,7 @@ Ermo
 Erval Velho
 Faxinal dos Guedes
 Flor do Sertão
-Florianópolis *
+Florianópolis 
 Formosa do Sul
 Forquilhinha
 Fraiburgo
@@ -103,7 +103,7 @@ Guaraciaba
 Guaramirim
 Guarujá do Sul
 Guatambú
-Herval d'Oeste
+Herval dOeste
 Ibiam
 Ibicaré
 Ibirama
@@ -135,7 +135,7 @@ Jaguaruna
 Jaraguá do Sul
 Jardinópolis
 Joaçaba
-Joinville *
+Joinville 
 José Boiteux
 Jupiá
 Lacerdópolis
@@ -245,7 +245,7 @@ São João do Itaperiú
 São João do Oeste
 São João do Sul
 São Joaquim
-São José *
+São José 
 São José do Cedro
 São José do Cerrito
 São Lourenço do Oeste

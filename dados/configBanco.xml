@@ -49,10 +49,11 @@
 			<eCivil>estadoCivil</eCivil>
 			<sexo>sexo</sexo>
 			<dataNasc>dataNascimento</dataNasc>
+			<ativo>ativo</ativo>
 		</colunasPessoa>
 
 		<comandos>		
-				 <insertPessoa>INSERT INTO pessoa(CPF, nome, estadoCivil, sexo, dataNascimento) VALUES(</insertPessoa>
+				 <insertPessoa>INSERT INTO pessoa(CPF, nome, estadoCivil, sexo, dataNascimento, ativo) VALUES(</insertPessoa>
 		 		  <insertAluno>INSERT INTO aluno(CPF, altura, peso) VALUES(</insertAluno>
 			<insertFuncionario>INSERT INTO funcionario(CPF, escolaridade, CTPS) VALUES(</insertFuncionario>
 	 			 <selectAlunos>select * from aluno inner join pessoa on aluno.CPF = pessoa.cpf;</selectAlunos>

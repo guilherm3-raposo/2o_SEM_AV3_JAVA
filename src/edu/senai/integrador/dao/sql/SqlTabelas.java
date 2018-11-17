@@ -1,7 +1,7 @@
 package edu.senai.integrador.dao.sql;
 
 public class SqlTabelas {
-	String[] tags = LeXml.getTag("tabelas", "configBanco.xml");
+	String[] tags = LeXml.getTag("tabelas", "/configBanco.xml");
 	
 	public final String CONTATO		  = (tags[0] + " ");
 	public final String ENDERECO	  = (tags[1] + " ");

@@ -8,7 +8,6 @@ import edu.senai.integrador.beans.exception.AlunoException;
 import edu.senai.integrador.beans.exception.FuncionarioException;
 import edu.senai.integrador.beans.exception.PessoaException;
 import edu.senai.integrador.ferramentas.FormataDados;
-import edu.senai.integrador.ferramentas.Validacoes;
 
 public class Aluno extends Pessoa {
 	private double altura;

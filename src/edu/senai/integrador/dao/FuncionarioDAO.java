@@ -56,7 +56,8 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 			    sq.VARCHAR + funcionario.getNome()+ sq.VARCHAR + sq.COMMA +
 						     funcionario.getEstadoCivil().ordinal() + sq.COMMA + 
 						     funcionario.getSexo().ordinal() + sq.COMMA + 
-   sq.VARCHAR + Date.valueOf(funcionario.getDataDeNascimento()) + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
+   sq.VARCHAR + Date.valueOf(funcionario.getDataDeNascimento()) + sq.VARCHAR + sq.COMMA +
+   							(funcionario.isAtivo() ? 1 : 0) + sq.CLOSE_PAR + sq.SEMI_COLON;
 		
 		insert[1] = comandos.INSERT_FUNC.toString() +  
 				sq.VARCHAR + funcionario.getCPF() + sq.VARCHAR + sq.COMMA +
@@ -220,26 +221,14 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 			Connection conexao = Conexao.getConexao();
 			try {
 				Statement st = conexao.createStatement();
-				st.execute(sq.DELETE + 
-						   sq.FROM + 
-				  tabelas.FUNCIONARIO + 
+				st.execute(sq.UPDATE +
+					  tabelas.PESSOA + 
+						   sq.SET +
+					  colunas.ATIVO + sq.EQUALS +
+						  	  0 +
 						   sq.WHERE +
-					  colunas.CPF +
-						   sq.EQUALS +
-						   sq.VARCHAR + 
-						   	  codigo + 
-						   sq.VARCHAR + 
-						   sq.CLOSE_PAR + sq.SEMI_COLON);
-				st.execute(sq.DELETE + 
-						   sq.FROM + 
-				  tabelas.PESSOA + 
-						   sq.WHERE + 
-				      colunas.CPF +
-						   sq.EQUALS +
-						   sq.VARCHAR + 
-						      codigo + 
-						   sq.VARCHAR + 
-						   sq.CLOSE_PAR + sq.SEMI_COLON);
+					  colunas.CPF + sq.EQUALS + 
+				 sq.VARCHAR + codigo + sq.VARCHAR + sq.SEMI_COLON);
 			} catch (SQLException e) {
 				throw new DAOException(EDaoErros.INSERE_DADO, e.getMessage(), this.getClass());
 			} finally {
@@ -251,34 +240,6 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 
 //	@Override
 	public boolean exclui(Funcionario funcionario) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
-		try {
-			Statement st = conexao.createStatement();
-			st.execute(sq.DELETE +
-					   sq.FROM + 
-			  tabelas.FUNCIONARIO + 
-					   sq.WHERE + 
-		   	      colunas.CPF +
-					   sq.EQUALS +
-					   sq.VARCHAR + 
-	   	      funcionario.getCPF() + 
-					   sq.VARCHAR + 
-					   sq.CLOSE_PAR + sq.SEMI_COLON);
-			st.execute(sq.DELETE + 
-					   sq.FROM + 
-		      tabelas.PESSOA + 
-					   sq.WHERE + 
-	   		      colunas.CPF +
-					   sq.EQUALS +
-					   sq.VARCHAR + 
-			  funcionario.getCPF() + 
-					   sq.VARCHAR + 
-					   sq.CLOSE_PAR + sq.SEMI_COLON);
-			return true;
-		} catch (SQLException e) {
-			throw new DAOException(EDaoErros.INSERE_DADO, e.getMessage(), this.getClass());
-		} finally {
-			Conexao.fechaConexao();
-		}
+		return exclui(funcionario.getCPF());
 	}
 }

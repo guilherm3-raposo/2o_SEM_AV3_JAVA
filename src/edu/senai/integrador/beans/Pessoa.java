@@ -14,6 +14,7 @@ public abstract class Pessoa {
 	private LocalDate dataDeNascimento;
 	private ESexo sexo;
 	private EEstadoCivil estadoCivil;
+	private boolean ativo;
 
 	public String getCPF() {
 		return CPF;
@@ -62,6 +63,14 @@ public abstract class Pessoa {
 
 	public void setEstadoCivil(EEstadoCivil estadoCivil) {
 		this.estadoCivil = estadoCivil;
+	}
+	
+	public boolean isAtivo() {
+		return ativo;
+	}
+	
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	@Override

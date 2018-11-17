@@ -1,12 +1,5 @@
 <html>
 	<body>
-		<logradouros>
-			<a1>R.</a1>
-			<a2>Av.</a2>
-			<a3>Al.</a3>
-			<a4>Rd.</a4>
-			<a5>V.</a5>
-		</logradouros>
 		<estados>
 			<e1>AC</e1>
 			<e2>AL</e2>

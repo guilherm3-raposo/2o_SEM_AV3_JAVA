@@ -34,6 +34,7 @@ public class Instanciador {
 					Double.valueOf(random.nextInt(40) + 40),
 
 					EEstadoCivil.values()[random.nextInt(4)]);
+			aluno.setAtivo(true);
 			return aluno;
 		} catch (PessoaException | AlunoException | FuncionarioException e) {
 			e.printStackTrace();
@@ -59,6 +60,7 @@ public class Instanciador {
 					ESexo.values()[random.nextInt(1)],
 
 					EEstadoCivil.values()[random.nextInt(4)]);
+			funcionario.setAtivo(true);
 			return funcionario;
 		} catch (PessoaException | FuncionarioException e) {
 			e.printStackTrace();

@@ -1,7 +1,7 @@
 package edu.senai.integrador.dao.sql;
 
 public class SqlComandos {
-	String[] tags = LeXml.getTag("comandos", "configBanco.xml");
+	String[] tags = LeXml.getTag("comandos", "/configBanco.xml");
 	
 	public final String INSERT_PESSOA		= (tags[0]);
 	public final String INSERT_ALUNO		= (tags[1]);
