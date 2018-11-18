@@ -34,7 +34,7 @@ public class Conexao {
 			String url3 = prop.getProperty("url3");
 			String usr = prop.getProperty("usr");
 			String pwd = prop.getProperty("pwd");
-			System.out.println(url1 + url2 + url3 + "," + usr + "," + pwd);
+//			System.out.println(url1 + url2 + url3 + "," + usr + "," + pwd);
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(url1 + url2 + url3, usr, pwd);
 			return conn;

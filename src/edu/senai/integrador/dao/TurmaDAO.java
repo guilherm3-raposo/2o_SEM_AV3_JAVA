@@ -171,7 +171,7 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 				}
 			});
 		} catch (SQLException e) {
-			
+			// TODO Auto-generated catch block
 		} finally {
 			Conexao.fechaConexao();
 		}
@@ -209,48 +209,29 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 
 	@Override
 	public boolean exclui(Integer codigo) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return false;
+		if (consulta(codigo) instanceof Turma) {
+			Connection conexao = Conexao.getConexao();
+			try {
+				Statement st = conexao.createStatement();
+				st.execute(sq.UPDATE +
+					  tabelas.TURMA + 
+						   sq.SET +
+					  colunas.ATIVO + sq.EQUALS +
+						 	  0 +
+						   sq.WHERE +
+					  colunas.ID_TURMA + sq.EQUALS + 
+							  codigo + sq.SEMI_COLON);
+			} catch (SQLException e) {
+				throw new DAOException(EDaoErros.EXCLUI_DADO, e.getMessage(), this.getClass());
+			} finally {
+				Conexao.fechaConexao();
+			}
+		}
+		return true;
 	}
 
 //	@Override
-	public boolean exclui(Turma objeto) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public static void main(String[] args) throws ConexaoException, DAOException, SQLException {
-		TurmaDAO turmaDAO = new TurmaDAO();
-		AlunoDAO alunoDAO = new AlunoDAO();
-		Turma turma = turmaDAO.consulta(1);
-//		System.out.println(turma);
-//		turma.setIdTurma(2);
-//		Map<String, Aluno> participantes = turma.getParticipantes();
-//		participantes.put("99988877716", alunoDAO.consulta("99988877716"));
-//		participantes.put("99988877714", alunoDAO.consulta("99988877714"));
-//
-//		turma.setParticipantes(participantes);
-//		System.out.println(turma);
-//		turmaDAO.insere(turma);
-		
-		SqlSintaxe sq = new SqlSintaxe();
-		SqlComandos comandos = new SqlComandos();
-		SqlTabelas tabelas = new SqlTabelas();
-		ColunasTurma colunas = new ColunasTurma();
-		ColunasModalidade colMod = new ColunasModalidade();
-		ColunasParticipantes colPart = new ColunasParticipantes();
-
-		System.out.println(sq.UPDATE +
-				  tabelas.TURMA +
-				  	   sq.SET + 
-			  	  colunas.ID_MODALIDADE + sq.EQUALS + 
-	   sq.VARCHAR + turma.getModalidade().getIdModalidade() + sq.VARCHAR + sq.COMMA +
-			  	  colunas.HORA_INICIO + sq.EQUALS + 
-	   sq.VARCHAR + turma.getHorarioInicio() + sq.VARCHAR + sq.COMMA +
-			 	  colunas.DURACAO + sq.EQUALS +
-			 	    turma.getDuracao() + " " + 
-			 	  	   sq.WHERE + 
-			 	  colunas.ID_TURMA + sq.EQUALS + 
-			 	    turma.getIdTurma() + sq.SEMI_COLON);
+	public boolean exclui(Turma turma) throws ConexaoException, DAOException {
+		return exclui(turma.getIdTurma());
 	}
 }

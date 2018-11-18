@@ -15,4 +15,5 @@ public class SqlComandos {
 	public final String SELECT_MODALIDADE	= (tags[9]);
 	public final String SELECT_TURMAS 		= (tags[10]);
 	public final String SELECT_TURMA 		= (tags[11]);
+	public final String CONFERE_TURMA 		= (tags[12]);
 }

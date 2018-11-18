@@ -7,5 +7,6 @@ public class ColunasTurma {
 	public final String ID_MODALIDADE	= (tags[1]);
 	public final String HORA_INICIO	 	= (tags[2]);
 	public final String DURACAO		 	= (tags[3]);
+	public final String ATIVO			= (tags[4]);
 
 }

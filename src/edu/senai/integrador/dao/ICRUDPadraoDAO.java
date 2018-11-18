@@ -9,7 +9,7 @@ public interface ICRUDPadraoDAO<T, O> {
 	public abstract T consulta(O codigo) throws ConexaoException, DAOException;
 
 	public abstract Map<O, T> consultaTodos() throws ConexaoException, DAOException;
-//	TODO VER COM O PROF SE ESSE WARNING VALE
+
 	public abstract List<T> consultaFaixa(O... codigos) throws ConexaoException, DAOException;
 
 	public abstract boolean insere(T objeto) throws ConexaoException, DAOException;

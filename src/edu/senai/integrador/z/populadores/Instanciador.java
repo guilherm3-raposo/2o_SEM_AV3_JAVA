@@ -37,7 +37,7 @@ public class Instanciador {
 			aluno.setAtivo(true);
 			return aluno;
 		} catch (PessoaException | AlunoException | FuncionarioException e) {
-			e.printStackTrace();
+			
 		}
 		return null;
 	}
@@ -63,7 +63,7 @@ public class Instanciador {
 			funcionario.setAtivo(true);
 			return funcionario;
 		} catch (PessoaException | FuncionarioException e) {
-			e.printStackTrace();
+			
 		}
 		return null;
 	}
