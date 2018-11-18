@@ -1,5 +1,0 @@
-CREATE SCHEMA IF NOT EXISTS `projeto_integrador` DEFAULT CHARACTER SET UTFMB4;
-USE `projeto_integrador`;
-CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Pessoa` (`CPF` VARCHAR(11) NOT NULL,`nome` VARCHAR(45) NOT NULL,`estadoCivil` VARCHAR(45) NOT NULL,`sexo` TINYINT(1) NOT NULL,`dataNascimento` DATE NOT NULL,`ativo` INT NOT NULL,UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC), PRIMARY KEY (`CPF`));
-CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Aluno` (`CPF` VARCHAR(11) NOT NULL,`altura` FLOAT NULL,`peso` FLOAT NULL,UNIQUE INDEX `CPFAluno_UNIQUE` (`CPF` ASC));
-ALTER TABLE `projeto_integrador`.`Aluno` ADD CONSTRAINT `fk_aluno_cpf` FOREIGN KEY (`CPF`) REFERENCES `projeto_integrador`.`Pessoa` (`CPF`)  ON DELETE CASCADE ON UPDATE CASCADE;
