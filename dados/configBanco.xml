@@ -8,7 +8,8 @@
 			<funcionario>Funcionario</funcionario>
 			<turma>Turma</turma>
 			<modalidade>Modalidade</modalidade>		
-			<participantes>Participantes</participantes>				
+			<participantes>Participantes</participantes>	
+			<login>Login</login>			
 		</tabelas>
 
 		<colunasAluno>
@@ -52,6 +53,13 @@
 			<dataNasc>dataNascimento</dataNasc>
 			<ativo>ativo</ativo>
 		</colunasPessoa>
+		
+		<colunasLogin>
+			<usuario>usuario</usuario>
+			<senha>senha</senha>
+			<cpf>CPF</cpf>
+			<admin>admin</admin>
+		</colunasLogin>
 
 		<comandos>		
 				 <insertPessoa>INSERT INTO pessoa(CPF, nome, estadoCivil, sexo, dataNascimento, ativo) VALUES(</insertPessoa>

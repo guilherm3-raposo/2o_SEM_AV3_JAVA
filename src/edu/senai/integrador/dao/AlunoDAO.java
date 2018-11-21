@@ -207,12 +207,6 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 	}
 
 	@Override
-	public boolean insereVariosTransacao(List<Aluno> objetos) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean altera(Aluno aluno) throws ConexaoException, DAOException {
 		Connection conexao = Conexao.getConexao();
 		String[] update = constroiUpdate(aluno);

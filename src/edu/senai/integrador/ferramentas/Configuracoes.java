@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Configuracoes {
+//	TODO REFATORAR PRO TESTE DE ARQUIVO
 	static String enderecoConfiguracoes = System.getProperty("user.dir") + "/dados/configuracoes.properties";
 
 	public static Properties Carrega() {

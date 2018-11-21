@@ -194,12 +194,6 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 	}
 
 	@Override
-	public boolean insereVariosTransacao(List<Funcionario> objetos) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean altera(Funcionario funcionario) throws ConexaoException, DAOException {
 		Connection conexao = Conexao.getConexao();
 		String[] update = constroiUpdate(funcionario);

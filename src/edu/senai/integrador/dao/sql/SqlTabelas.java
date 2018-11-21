@@ -11,4 +11,5 @@ public class SqlTabelas {
 	public final String TURMA		  = (tags[5] + " ");
 	public final String MODALIDADE	  = (tags[6] + " ");
 	public final String PARTICIPANTES = (tags[7] + " ");
+	public final String LOGIN		  = (tags[8] + " ");
 }

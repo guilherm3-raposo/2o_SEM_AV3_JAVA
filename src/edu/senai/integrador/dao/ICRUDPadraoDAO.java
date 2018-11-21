@@ -18,8 +18,6 @@ public interface ICRUDPadraoDAO<T, O> {
 
 	public abstract List<T> insereVarios(List<T> objetos) throws ConexaoException, DAOException;
 
-	public abstract boolean insereVariosTransacao(List<T> objetos) throws ConexaoException, DAOException;
-
 	public abstract boolean altera(T objeto) throws ConexaoException, DAOException;
 
 	public abstract boolean exclui(O objeto) throws ConexaoException, DAOException;

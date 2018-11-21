@@ -179,12 +179,6 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 	}
 
 	@Override
-	public boolean insereVariosTransacao(List<Turma> objetos) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean altera(Turma turma) throws ConexaoException, DAOException {
 		Connection conexao = Conexao.getConexao();
 		try {

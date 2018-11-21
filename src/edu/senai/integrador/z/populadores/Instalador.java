@@ -64,7 +64,9 @@ public class Instalador {
 	}
 	
 	public static void main(String[] args) {
-		List<String> script = instalaBanco();
-		System.out.println(script);
+//		List<String> script = instalaBanco();
+		populaAlunos(20);
+		populaFuncionarios(20);
+//		System.out.println(script);
 	}
 }
