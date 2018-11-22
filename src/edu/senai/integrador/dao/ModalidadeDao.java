@@ -110,9 +110,28 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 	}
 	
 	@Override
-	public List<Modalidade> insereVarios(Map<String, Modalidade> objetos) throws ConexaoException, DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Modalidade> insereVarios(Map<String, Modalidade> modalidades) throws ConexaoException, DAOException {
+		Connection conexao = Conexao.getConexao();
+		List<Modalidade> naoInseridos = new ArrayList<Modalidade>();
+		try {
+			modalidades.forEach((id,modalidade) -> {
+				Modalidade naoInserido = new Modalidade();
+				Statement st;
+				try {
+					st = conexao.createStatement();
+					String insert = constroiInsert(modalidade);
+					st.execute(insert);
+					naoInserido = modalidade;
+				} catch (SQLException e) {
+					naoInseridos.add(naoInserido);
+				}
+			});
+		} catch (Exception e) {
+			throw new DAOException(EDaoErros.INSERE_DADO, e.getMessage(), this.getClass());
+		} finally {
+			Conexao.fechaConexao();
+		}
+		return naoInseridos;
 	}
 	
 	
