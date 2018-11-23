@@ -96,3 +96,6 @@
 #17/11/2018 - 18:34:58 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
 #17/11/2018 - 18:35:19 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
 #17/11/2018 - 18:35:33 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#22/11/2018 - 23:20:27 (Thu.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Parameter index out of range (1 > number of parameters, which is 0).#
+#22/11/2018 - 23:23:55 (Thu.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#No database selected#
+#22/11/2018 - 23:27:00 (Thu.) - O Número informado está no formato errado: #edu.senai.integrador.dao.AlunoDAO#For input string: "div"#

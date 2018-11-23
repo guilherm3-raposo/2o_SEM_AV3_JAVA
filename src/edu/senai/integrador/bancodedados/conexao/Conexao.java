@@ -3,6 +3,7 @@ package edu.senai.integrador.bancodedados.conexao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.ZoneId;
 import java.util.Properties;
 
 import edu.senai.integrador.ferramentas.Configuracoes;
@@ -27,8 +28,9 @@ public class Conexao {
 			Class.forName(prop.getProperty("driver", "com.mysql.cj.jdbc.Driver"));
 			conn = DriverManager.getConnection(prop.getProperty("conector", "jdbc:mysql://") +
 											   prop.getProperty("ip","localhost:3306/") + 
+											   prop.getProperty("nomeBanco", "projeto_integrador") +
 								  "?useSSL=" + prop.getProperty("ssl", "false") +
-						  "&serverTimezone=" + prop.getProperty("timeZ","America/Sao_Paulo"),
+						  "&serverTimezone=" + ZoneId.systemDefault().getId(),	  		
 											   prop.getProperty("usr"),
 											   prop.getProperty("pwd"));
 			return conn;

@@ -65,6 +65,7 @@
 				 <insertPessoa>INSERT INTO pessoa(CPF, nome, estadoCivil, sexo, dataNascimento, ativo) VALUES(</insertPessoa>
 		 		  <insertAluno>INSERT INTO aluno(CPF, altura, peso) VALUES(</insertAluno>
 			<insertFuncionario>INSERT INTO funcionario(CPF, escolaridade, CTPS) VALUES(</insertFuncionario>
+	 			 <insertModalidade></insertModalidade>
 	 			 <selectAlunos>select * from aluno inner join pessoa on aluno.CPF = pessoa.cpf;</selectAlunos>
 				  <selectAluno>select * from aluno inner join pessoa on aluno.CPF = pessoa.cpf where aluno.CPF = ?;</selectAluno>
 			<selectFuncionarios>select * from funcionario inner join pessoa on funcionario.CPF = pessoa.cpf;</selectFuncionarios>

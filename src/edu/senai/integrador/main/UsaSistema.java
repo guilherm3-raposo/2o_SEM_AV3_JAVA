@@ -15,13 +15,15 @@ import edu.senai.integrador.ferramentas.Configuracoes;
 import edu.senai.integrador.ferramentas.LeituraTerminal;
 
 public class UsaSistema {
+	static ItemsMenu text = new ItemsMenu();
+	
 	public static void main(String[] args) {
 		AnsiConsole.systemInstall();
-		String teclado = null;
 
 		System.out.println(verdePreto(cabecalho()).reset() + "\n");
 		System.out.print(verdePreto(menuPrincipalSU()).reset());
 		System.out.print(" >");
+		
 		for (int i = 0; i < 1 || i > 6;) {
 			i = LeituraTerminal.leInt();
 			
@@ -30,6 +32,12 @@ public class UsaSistema {
 						.cursorLeft(String.valueOf(i).length() + 2) + " " + ansi().cursorLeft(1));
 			}
 		}
+	}
+	
+	public static boolean menuCadastroSistema () {
+		System.out.println(text.SERIAL);
+		LeituraTerminal.leString();
+		return true;
 	}
 
 	public static List<String> leParametros(String[] args) {
