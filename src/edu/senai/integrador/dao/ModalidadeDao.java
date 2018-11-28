@@ -36,10 +36,31 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 	}
 	
 	private String constroiInsert (Modalidade modalidade){
-		return comandos.INSERT_MODALIDADE.toString() + 
-				sq.VARCHAR + modalidade.getIdModalidade() + sq.VARCHAR + sq.COMMA +
-				sq.VARCHAR + modalidade.getSemana() + sq.VARCHAR + sq.COMMA +
-			     modalidade.getMinimoParticipantes() + sq.CLOSE_PAR + sq.SEMI_COLON;	
+		System.out.println(sq.INSERT + 
+			     sq.INTO +
+		    tabelas.MODALIDADE + sq.OPEN_PAR + 
+		    colunas.ID_MODALI + sq.COMMA +
+		    colunas.SEMANA + sq.COMMA +
+		    colunas.MIN_PARTIC + sq.COMMA +
+		    colunas.ATIVO +sq.CLOSE_PAR + " " +
+		  	     sq.VALUES + sq.OPEN_PAR + sq.VARCHAR + 
+		 modalidade.getIdModalidade() + sq.VARCHAR + sq.COMMA + sq.VARCHAR + 
+		 modalidade.getSemana() + sq.VARCHAR + sq.COMMA +
+		 modalidade.getMinimoParticipantes() + sq.COMMA +
+		(modalidade.isAtivo()?1:0) + sq.CLOSE_PAR + sq.SEMI_COLON);
+		
+		return 	 sq.INSERT + 
+			     sq.INTO +
+		    tabelas.MODALIDADE + sq.OPEN_PAR + 
+		    colunas.ID_MODALI + sq.COMMA +
+		    colunas.SEMANA + sq.COMMA +
+		    colunas.MIN_PARTIC + sq.COMMA +
+		    colunas.ATIVO +sq.CLOSE_PAR + " " +
+		  	     sq.VALUES + sq.OPEN_PAR + sq.VARCHAR + 
+		 modalidade.getIdModalidade() + sq.VARCHAR + sq.COMMA + sq.VARCHAR + 
+		 modalidade.getSemana() + sq.VARCHAR + sq.COMMA +
+		 modalidade.getMinimoParticipantes() + sq.COMMA +
+		(modalidade.isAtivo()?1:0) + sq.CLOSE_PAR + sq.SEMI_COLON;	
 	}
 	
 	private String constroiUpdate(Modalidade modalidade) {
@@ -53,10 +74,10 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 
 	@Override
 	public Modalidade consulta(String modalidade) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			Statement st = conexao.createStatement();
-			String sqlSt = comandos.SELECT_MODALIDADE.toString();
+			String sqlSt = comandos.SELECT_MODALIDADE;
 			ResultSet rs = st.executeQuery(sqlSt);
 			return rs.first() ? constroiModalidade(rs) : null;
 		} catch (SQLException e) {
@@ -70,7 +91,7 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 
 	@Override
 	public Map<String, Modalidade> consultaTodos() throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		Map<String, Modalidade> modalidades = new HashMap<String, Modalidade>();
 		try {
 			Statement st = conexao.createStatement();
@@ -97,7 +118,7 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 
 	@Override
 	public boolean insere(Modalidade modalidade) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			Statement st = conexao.createStatement();
 			st.execute(constroiInsert(modalidade));
@@ -111,7 +132,7 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 	
 	@Override
 	public List<Modalidade> insereVarios(Map<String, Modalidade> modalidades) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		List<Modalidade> naoInseridos = new ArrayList<Modalidade>();
 		try {
 			modalidades.forEach((id,modalidade) -> {
@@ -137,7 +158,7 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 	
 	@Override
 	public List<Modalidade> insereVarios(List<Modalidade> modalidades) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		Modalidade naoInserido = new Modalidade();
 		List<Modalidade> naoInseridos = new ArrayList<Modalidade>();
 		try {
@@ -157,7 +178,7 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 
 	@Override
 	public boolean altera(Modalidade modalidade) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			String update = constroiUpdate(modalidade);
 			Statement st = conexao.createStatement();
@@ -173,7 +194,7 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 	@Override
 	public boolean exclui(String modalidades) throws ConexaoException, DAOException {
 		if (consulta(modalidades) instanceof Modalidade) {
-			Connection conexao = Conexao.getConexao();
+			Connection conexao = Conexao.abreConexao();
 			try {
 				Statement st = conexao.createStatement();
 				st.execute(sq.DELETE);
@@ -186,10 +207,12 @@ public class ModalidadeDao implements ICRUDPadraoDAO<Modalidade, String> {
 		return true;
 
 	}
-	
+	 
 	public static void main(String[] args) throws ConexaoException, DAOException {
+		
 		ModalidadeDao modalidadeDao = new ModalidadeDao();
 		Modalidade modalidade = modalidadeDao.consulta("muaythay");
+//		modalidadeDao.print(modalidade);
 		modalidadeDao.insere(modalidade);
 		System.out.println("done");
 		

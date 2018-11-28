@@ -34,7 +34,7 @@ public class LoginDAO implements ICRUDPadraoDAO<Login, String> {
 	
 	@Override
 	public Login consulta(String codigo) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			Statement st = conexao.createStatement();
 			ResultSet rs = st.executeQuery(sq.SELECT + 

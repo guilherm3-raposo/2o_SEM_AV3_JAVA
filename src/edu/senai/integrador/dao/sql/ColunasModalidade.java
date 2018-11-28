@@ -12,4 +12,5 @@ public class ColunasModalidade {
 	public final String SEMANA		 = (tags[0]);
 	public final String ID_MODALI	 = (tags[1]);
 	public final String MIN_PARTIC	 = (tags[2]);
+	public final String ATIVO		 = (tags[3]);
 }

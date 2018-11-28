@@ -7,7 +7,7 @@ import edu.senai.integrador.ferramentas.Configuracoes;
 public class ColunasTurma {
 	Configuracoes config = new Configuracoes();
 	Properties prop = config.carrega(false);
-	private String[] tags = LeXml.getTag("colunasTurma", "/bancoConfiguracoes");
+	private String[] tags = LeXml.getTag("colunasTurma", "/bancoConfiguracoes.xml");
 	
 	public final String ID_TURMA	 	= (tags[0]);
 	public final String ID_MODALIDADE	= (tags[1]);

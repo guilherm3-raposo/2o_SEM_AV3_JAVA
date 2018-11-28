@@ -89,7 +89,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 	
 	@Override
 	public Aluno consulta(String codigo) throws ConexaoException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			PreparedStatement pst = conexao.prepareStatement(comandos.SELECT_ALUNO);
 			pst.setString(1, codigo);
@@ -109,7 +109,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 
 	@Override
 	public Map<String, Aluno> consultaTodos() throws ConexaoException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			Map<String, Aluno> pessoas = new HashMap<String, Aluno>();
 			Statement st = conexao.createStatement();
@@ -137,7 +137,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 
 	@Override
 	public boolean insere(Aluno aluno) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			Statement st = conexao.createStatement();
 			String[] insert = constroiInsert(aluno);
@@ -155,7 +155,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 
 	@Override
 	public List<Aluno> insereVarios(List<Aluno> alunos) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		Aluno naoInserido = new Aluno();
 		List<Aluno> naoInseridos = new ArrayList<Aluno>();
 		try {
@@ -177,7 +177,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 
 	@Override
 	public List<Aluno> insereVarios(Map<String, Aluno> alunos) throws ConexaoException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		List<Aluno> naoInseridos = new ArrayList<Aluno>();
 		try {
 			alunos.forEach((cpf,aluno) -> {
@@ -203,7 +203,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 
 	@Override
 	public boolean altera(Aluno aluno) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		String[] update = constroiUpdate(aluno);
 		try {
 			Statement st = conexao.createStatement();
@@ -228,7 +228,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 					sq.WHERE +
 					colunas.CPF + sq.EQUALS + 
 					sq.VARCHAR + codigo + sq.VARCHAR + sq.SEMI_COLON);
-			Connection conexao = Conexao.getConexao();
+			Connection conexao = Conexao.abreConexao();
 			try {
 				Statement st = conexao.createStatement();
 				st.execute(sq.UPDATE +

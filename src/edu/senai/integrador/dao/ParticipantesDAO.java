@@ -66,7 +66,7 @@ public class ParticipantesDAO {
 
 	public boolean insereParticipantes(int idTurma, List<String> funcionarios, List<String> alunos) {
 		try {
-			Connection conexao = Conexao.getConexao();
+			Connection conexao = Conexao.abreConexao();
 			Statement st = conexao.createStatement();
 			List<String> insertList = constroiInsert(idTurma, funcionarios, false);
 			for (String insert : insertList) {

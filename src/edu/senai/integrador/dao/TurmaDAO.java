@@ -72,7 +72,7 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 	
 	@Override
 	public Turma consulta(Integer codigo) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			PreparedStatement pst = conexao.prepareStatement(comandos.SELECT_TURMA);
 			pst.setInt(1, codigo);
@@ -87,7 +87,7 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 
 	@Override
 	public Map<Integer, Turma> consultaTodos() throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		Map<Integer, Turma> turmas = new HashMap<Integer, Turma>();
 		
 		try {
@@ -117,14 +117,16 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 
 	@Override
 	public boolean insere(Turma turma) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			ModalidadeDao modalidadeDao = new ModalidadeDao();
 			ParticipantesDAO participantesDAO = new ParticipantesDAO();
 			modalidadeDao.insere(turma.getModalidade());
+			Conexao.abreConexao();
 			Statement st = conexao.createStatement();
 			String insert = constroiInsert(turma);
 			st.execute(insert);
+			Conexao.abreConexao();
 			List<String> funcionarios = new ArrayList<>();
 			List<String> alunos = new ArrayList<>();
 			turma.getMinistrantes().forEach((cpf, funcionario) -> funcionarios.add(cpf));
@@ -140,7 +142,7 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 
 	@Override
 	public List<Turma> insereVarios(List<Turma> turmas) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		List<Turma> naoInseridos = new ArrayList<Turma>();
 		Turma naoInserido = new Turma();
 		try {
@@ -157,7 +159,7 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 
 	@Override
 	public List<Turma> insereVarios(Map<Integer, Turma> turmas) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		List<Turma> naoInseridos = new ArrayList<Turma>();
 		try {
 			Statement st = conexao.createStatement();
@@ -180,7 +182,7 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 
 	@Override
 	public boolean altera(Turma turma) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			Statement st = conexao.createStatement();
 			return st.execute(sq.UPDATE +
@@ -204,7 +206,7 @@ public class TurmaDAO implements ICRUDPadraoDAO<Turma, Integer> {
 	@Override
 	public boolean exclui(Integer codigo) throws ConexaoException, DAOException {
 		if (consulta(codigo) instanceof Turma) {
-			Connection conexao = Conexao.getConexao();
+			Connection conexao = Conexao.abreConexao();
 			try {
 				Statement st = conexao.createStatement();
 				st.execute(sq.UPDATE +

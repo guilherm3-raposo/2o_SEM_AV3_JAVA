@@ -2,7 +2,13 @@ package edu.senai.integrador.beans;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.Map;
+
+import edu.senai.integrador.bancodedados.conexao.ConexaoException;
+import edu.senai.integrador.dao.DAOException;
+import edu.senai.integrador.dao.TurmaDAO;
+import edu.senai.integrador.z.populadores.Instanciador;
 
 public class Turma {
 	private int idTurma;
@@ -11,10 +17,6 @@ public class Turma {
 	private Map<String, Funcionario> ministrantes;
 	private Map<String, Aluno> participantes;
 	private Modalidade modalidade;
-
-	public boolean cadastraAtividade() {
-		return true;
-	}
 
 	public Turma() {
 	}
@@ -109,5 +111,30 @@ public class Turma {
 			  getModalidade().getMinimoParticipantes()+" Alunos Necessários\n\n"
 			  + getNomeParticipantes() + "\n" +
 			  "________________________________________________" ;
+	}
+	
+	public static void main(String[] args) throws ConexaoException, DAOException {
+		Turma turma = new Turma(); 
+		Modalidade modalidade = new Modalidade();
+		modalidade.setIdModalidade("zumba");
+		modalidade.setSemana("snsnsns");
+		modalidade.setMinimoParticipantes(5);
+		Map<String, Aluno> alunos = new HashMap<String, Aluno>();
+		Map<String, Funcionario> funcionarios = new HashMap<String, Funcionario>();
+		for (int i = 0; i < 3; i++) {
+			alunos.put(i+"", Instanciador.criaAluno());
+			funcionarios.put(i+"",Instanciador.criaFuncionario());
+		}
+		turma.setDuracao(1);
+		turma.setHorarioInicio(LocalTime.now());
+		turma.setIdTurma(1);
+		turma.setModalidade(modalidade);
+		turma.setMinistrantes(funcionarios);
+		turma.setParticipantes(alunos);
+		
+		TurmaDAO turmaDAO = new TurmaDAO();
+		turmaDAO.insere(turma);
+		
+		System.out.println(turma.toString());
 	}
 }

@@ -28,7 +28,7 @@
 			<semana>semana</semana>
 			<idMod>idModalidade</idMod>
 			<minimo>minimoParticipantes</minimo>
-			<maximo>maximoParticipantes</maximo>	
+			<ativo>ativo</ativo>	
 		</colunasModalidade>
 
 		<colunasTurma>

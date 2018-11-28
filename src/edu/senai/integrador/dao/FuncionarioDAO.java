@@ -105,7 +105,7 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 	
 	@Override
 	public Funcionario consulta(String funcionario) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			PreparedStatement pst = conexao.prepareStatement(comandos.SELECT_FUNCIONARIO.toString());
 			pst.setString(1, funcionario);
@@ -121,7 +121,7 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 
 	@Override
 	public Map<String, Funcionario> consultaTodos() throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		Map<String, Funcionario> pessoas = new HashMap<String, Funcionario>();
 		try {
 			Statement st = conexao.createStatement();
@@ -148,7 +148,7 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 
 	@Override
 	public boolean insere(Funcionario funcionario) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 
 		try {
 			Statement st = conexao.createStatement();
@@ -166,7 +166,7 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 
 	@Override
 	public List<Funcionario> insereVarios(List<Funcionario> funcionarios) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		Funcionario naoInserido = new Funcionario();
 		List<Funcionario> naoInseridos = new ArrayList<Funcionario>();
 		try {
@@ -188,7 +188,7 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 
 	@Override
 	public List<Funcionario> insereVarios(Map<String, Funcionario> funcionarios) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		List<Funcionario> naoInseridos = new ArrayList<Funcionario>();
 		try {
 			funcionarios.forEach((cpf,funcionario) -> {
@@ -214,7 +214,7 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 
 	@Override
 	public boolean altera(Funcionario funcionario) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		String[] update = constroiUpdate(funcionario);
 		try {
 			Statement st = conexao.createStatement();
@@ -231,7 +231,7 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 	@Override
 	public boolean exclui(String codigo) throws ConexaoException, DAOException {
 		if (consulta(codigo) instanceof Funcionario) {
-			Connection conexao = Conexao.getConexao();
+			Connection conexao = Conexao.abreConexao();
 			try {
 				Statement st = conexao.createStatement();
 				st.execute(sq.UPDATE +

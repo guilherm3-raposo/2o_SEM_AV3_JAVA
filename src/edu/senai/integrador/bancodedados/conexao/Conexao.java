@@ -11,18 +11,18 @@ public class Conexao {
 	private static Configuracoes config = new Configuracoes();
 	private static Connection conn = null;
 
-	public static Connection getConexao() throws ConexaoException {
-		try {
-			if (conn == null || conn.isClosed()) {
-				conn = abreConexao();
-			}
-		} catch (SQLException e) {
-			// TODO resolver
-		}
-		return conn;
-	}
+//	public static Connection abreConexao() throws ConexaoException {
+//		try {
+//			if (conn == null || conn.isClosed()) {
+//				conn = abreConexao();
+//			}
+//		} catch (SQLException e) {
+//			// TODO resolver
+//		}
+//		return conn;
+//	}
 
-	private static Connection abreConexao() throws ConexaoException {
+	public static Connection abreConexao() throws ConexaoException {
 		try {
 			Properties prop = config.carrega(false);
 			Class.forName(prop.getProperty("driver", "com.mysql.cj.jdbc.Driver"));

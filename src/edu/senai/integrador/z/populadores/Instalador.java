@@ -21,7 +21,7 @@ public class Instalador {
 		List<String> script = LeTxt.getLista("/bancoInstalador.txt");
 		System.out.println(LeTxt.getLista("/bancoInstalador.txt"));
 		try {
-			Connection conexao = Conexao.getConexao();
+			Connection conexao = Conexao.abreConexao();
 			Statement st = conexao.createStatement();
 			for (int i = 0; i < script.size(); i++) {
 				st.execute(script.get(i));

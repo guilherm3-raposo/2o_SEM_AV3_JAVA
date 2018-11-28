@@ -1,11 +1,10 @@
 package edu.senai.integrador.beans;
 
-import java.time.LocalTime;
-
 public class Modalidade {
 	private String idModalidade;
 	private String semana;
 	private int minimoParticipantes;
+	private boolean ativo;
 
 	public Modalidade() {
 	}
@@ -28,6 +27,7 @@ public class Modalidade {
 	public String getSemana() {
 		return semana;
 	}
+	
 
 	public String getSemanaFormatada() {
 		String semanaFormatada = "";
@@ -52,5 +52,13 @@ public class Modalidade {
 
 	public void setMinimoParticipantes(int minimoParticipantes) {
 		this.minimoParticipantes = minimoParticipantes;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 }

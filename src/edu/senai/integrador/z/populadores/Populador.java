@@ -36,7 +36,7 @@ public class Populador {
 		
 		Connection conexao;
 		try {
-			conexao = Conexao.getConexao();
+			conexao = Conexao.abreConexao();
 			Statement st = conexao.createStatement();
 			conexao.setAutoCommit(false);
 

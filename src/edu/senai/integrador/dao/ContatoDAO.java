@@ -65,7 +65,7 @@ public class ContatoDAO implements ICRUDPadraoDAO<Contato, String> {
 	
 	@Override
 	public Contato consulta(String codigo) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		try {
 			PreparedStatement pst = conexao.prepareStatement(comandos.SELECT_CONTATO);
 			pst.setString(1, codigo);
@@ -82,7 +82,7 @@ public class ContatoDAO implements ICRUDPadraoDAO<Contato, String> {
 	
 	@Override
 	public Map<String, Contato> consultaTodos() throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		Map<String, Contato> contatos = new HashMap<String, Contato>();
 		try {
 			Statement st = conexao.createStatement();
@@ -109,7 +109,7 @@ public class ContatoDAO implements ICRUDPadraoDAO<Contato, String> {
 	
 	@Override
 	public boolean insere(Contato contato) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao(); 
+		Connection conexao = Conexao.abreConexao(); 
 		try {
 			Statement st = conexao.createStatement();
 			String insert = constroiInsert(contato);
@@ -124,7 +124,7 @@ public class ContatoDAO implements ICRUDPadraoDAO<Contato, String> {
 
 	@Override
 	public List<Contato> insereVarios(Map<String, Contato> contatos) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		List<Contato> naoInseridos = new ArrayList<Contato>();
 		try {
 			contatos.forEach((cpf,contato) -> {
@@ -149,7 +149,7 @@ public class ContatoDAO implements ICRUDPadraoDAO<Contato, String> {
 
 	@Override
 	public List<Contato> insereVarios(List<Contato> contatos) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		Contato naoInserido = new Contato();
 		List<Contato> naoInseridos = new ArrayList<Contato>();
 		try {
@@ -170,7 +170,7 @@ public class ContatoDAO implements ICRUDPadraoDAO<Contato, String> {
 
 	@Override
 	public boolean altera(Contato contato) throws ConexaoException, DAOException {
-		Connection conexao = Conexao.getConexao();
+		Connection conexao = Conexao.abreConexao();
 		String update = constroiUpdate(contato);
 		try {
 			Statement st = conexao.createStatement();
