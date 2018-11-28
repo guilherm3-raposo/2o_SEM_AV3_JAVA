@@ -6,7 +6,9 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value=" integrador/src"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="testesJUnit"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.12.jar"/>
 	<classpathentry kind="lib" path="lib/jansi-1.17.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

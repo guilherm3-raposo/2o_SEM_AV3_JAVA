@@ -9,7 +9,9 @@
 			<turma>Turma</turma>
 			<modalidade>Modalidade</modalidade>		
 			<participantes>Participantes</participantes>	
-			<login>Login</login>			
+			<login>Login</login>
+			<exercicio>Exercicio</exercicio>
+			<musculacao>Musculacao</musculacao>			
 		</tabelas>
 
 		<colunasAluno>
@@ -60,7 +62,14 @@
 			<cpf>CPF</cpf>
 			<admin>admin</admin>
 		</colunasLogin>
-
+		
+		<comandosMusc>
+			<insert></insert>
+			<select></select>
+			<update></update>
+			<delete></delete>
+		</comandosMusc>
+		
 		<comandos>		
 				 <insertPessoa>INSERT INTO pessoa(CPF, nome, estadoCivil, sexo, dataNascimento, ativo) VALUES(</insertPessoa>
 		 		  <insertAluno>INSERT INTO aluno(CPF, altura, peso) VALUES(</insertAluno>

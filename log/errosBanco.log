@@ -192,3 +192,137 @@
 #28/11/2018 - 01:02:02 (Wed.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ModalidadeDao#Duplicate entry 'zumba' for key 'PRIMARY'#
 #28/11/2018 - 01:02:15 (Wed.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.TurmaDAO#No operations allowed after connection closed.#
 #28/11/2018 - 01:07:41 (Wed.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ModalidadeDao#Duplicate entry 'zumba' for key 'PRIMARY'#
+#28/11/2018 - 07:19:44 (Wed.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ModalidadeDao#Duplicate entry 'zumba' for key 'PRIMARY'#
+#28/11/2018 - 12:08:08 (Wed.) - O nome informado deve conter entre 6 e 30 caracteres!;Nome#
+#28/11/2018 - 12:08:15 (Wed.) - O nome informado deve conter entre 6 e 30 caracteres!;Nome#
+#28/11/2018 - 12:08:54 (Wed.) - O nome informado deve conter entre 6 e 30 caracteres!;Nome#
+#28/11/2018 - 12:08:56 (Wed.) - O nome informado deve conter entre 6 e 30 caracteres!;Nome#
+#28/11/2018 - 12:09:43 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 12:09:45 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 12:09:49 (Wed.) - Senha;A senha informada deve conter entre 6 e 20 caracteres!#
+#28/11/2018 - 12:09:51 (Wed.) - Senha;A senha informada deve conter entre 6 e 20 caracteres!#
+#28/11/2018 - 12:14:09 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 12:14:11 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 12:14:28 (Wed.) - Nome;O nome informado contém caracteres inválidos!#
+#28/11/2018 - 12:15:55 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 12:15:56 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 12:15:59 (Wed.) - Nome;O nome informado contém caracteres inválidos!#
+#28/11/2018 - 12:16:05 (Wed.) - Senha;A senha informada deve conter entre 6 e 20 caracteres!#
+#28/11/2018 - 12:16:06 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:16:07 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:16:08 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:17:03 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:17:04 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:17:04 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:19:22 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:19:23 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:19:24 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:19:27 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:19:28 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:19:28 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:19:29 (Wed.) - edu.senai.integrador.beans.exception.PessoaException: Valor informado não pode ser vazio#
+#28/11/2018 - 12:22:26 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:22:28 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:22:29 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:24:58 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:25:10 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:25:11 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:25:11 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:25:12 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:25:13 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 12:25:16 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:25:17 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:25:17 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:56:32 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:56:34 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:56:36 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:56:38 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:57:38 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 12:57:39 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 12:57:39 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 12:57:51 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 12:57:53 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 12:57:55 (Wed.) - java.lang.NumberFormatException: For input string: "q"#
+#28/11/2018 - 12:57:57 (Wed.) - java.lang.NumberFormatException: For input string: "qwe"#
+#28/11/2018 - 12:57:59 (Wed.) - java.lang.NumberFormatException: For input string: "qwe"#
+#28/11/2018 - 12:58:47 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 12:58:49 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:58:51 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:58:53 (Wed.) - Valor;Valor informado é inválido!#
+#28/11/2018 - 12:59:21 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 12:59:23 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 12:59:26 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 12:59:28 (Wed.) - java.lang.NumberFormatException: For input string: "qweqwe"#
+#28/11/2018 - 12:59:34 (Wed.) - java.lang.NumberFormatException: For input string: "qweqwe"#
+#28/11/2018 - 13:00:19 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:00:22 (Wed.) - Senha;A senha informada deve conter entre 6 e 20 caracteres!#
+#28/11/2018 - 13:01:42 (Wed.) - Nome;O nome informado deve conter entre 6 e 30 caracteres!#
+#28/11/2018 - 13:04:38 (Wed.) - java.lang.NumberFormatException: For input string: "			menuCadastroSistema();"#
+#28/11/2018 - 13:04:48 (Wed.) - Senha;A senha informada deve conter entre 6 e 20 caracteres!#
+#28/11/2018 - 13:04:59 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:05:01 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:05:01 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:05:01 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:05:02 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:05:02 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:05:02 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:05:02 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:16:08 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:16:10 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:16:12 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:16:22 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:16:26 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:16:28 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:21:36 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:21:38 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:21:40 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:37 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:39 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:40 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:40 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:40 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:41 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:41 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:41 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:41 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:22:41 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:23:26 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:23:27 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:23:27 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:23:27 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:23:28 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:23:28 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:23:28 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:23:29 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:23:29 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:24:46 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:24:47 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:24:47 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:24:47 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:24:48 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:24:48 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:25:07 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:25:08 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:25:08 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:25:09 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:25:09 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:25:10 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:26:19 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:26:19 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:26:20 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:26:20 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:26:31 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:26:34 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:26:36 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:27:11 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:28:20 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:28:22 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:28:22 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:29:25 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:29:27 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:29:28 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:29:29 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:29:43 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 13:29:45 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 18:11:35 (Wed.) - String;Campo não pode estar vazio!#
+#28/11/2018 - 18:11:38 (Wed.) - String;Campo não pode estar vazio!#

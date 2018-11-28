@@ -18,4 +18,6 @@ public class SqlTabelas {
 	public final String MODALIDADE	  = (tags[6] + " ");
 	public final String PARTICIPANTES = (tags[7] + " ");
 	public final String LOGIN		  = (tags[8] + " ");
+	public final String EXERCICIO	  = (tags[9] + " ");
+	public final String MUSCULACAO	  = (tags[10] + " ");
 }
