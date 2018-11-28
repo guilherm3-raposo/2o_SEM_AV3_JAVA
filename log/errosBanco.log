@@ -156,3 +156,13 @@
 #27/11/2018 - 20:05:37 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Parameter index out of range (1 > number of parameters, which is 0).#
 #27/11/2018 - 20:05:56 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Parameter index out of range (1 > number of parameters, which is 0).#
 #27/11/2018 - 20:06:18 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Parameter index out of range (1 > number of parameters, which is 0).#
+#27/11/2018 - 22:20:39 (Tue.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.FuncionarioDAO#Duplicate entry '88877766600' for key 'PRIMARY'#
+#27/11/2018 - 22:21:56 (Tue.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.FuncionarioDAO#Duplicate entry '88877766600' for key 'PRIMARY'#
+#27/11/2018 - 22:27:50 (Tue.) - Erro ao inserir o registro na tabela informada: #edu.senai.integrador.dao.FuncionarioDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1#
+#27/11/2018 - 22:32:17 (Tue.) - Erro ao inserir o registro na tabela informada: #edu.senai.integrador.dao.FuncionarioDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1#
+#27/11/2018 - 22:33:45 (Tue.) - Erro ao inserir o registro na tabela informada: #edu.senai.integrador.dao.FuncionarioDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1#
+#27/11/2018 - 22:34:16 (Tue.) - Erro ao inserir o registro na tabela informada: #edu.senai.integrador.dao.FuncionarioDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1#
+#27/11/2018 - 22:53:47 (Tue.) - O cadastro informado já existe, deseja reativá-lo?#edu.senai.integrador.dao.FuncionarioDAO#1062#
+#27/11/2018 - 22:56:30 (Tue.) - O cadastro informado já existe, deseja reativá-lo?#edu.senai.integrador.dao.FuncionarioDAO#1062#
+#27/11/2018 - 23:16:28 (Tue.) - O cadastro informado já existe, deseja reativá-lo?#edu.senai.integrador.dao.AlunoDAO#1062#
+#27/11/2018 - 23:17:32 (Tue.) - O cadastro informado já existe, deseja reativá-lo?#edu.senai.integrador.dao.FuncionarioDAO#1062#
