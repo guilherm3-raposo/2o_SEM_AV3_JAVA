@@ -1,6 +1,7 @@
 package edu.senai.integrador.ferramentas;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.Period;
@@ -22,28 +23,47 @@ import edu.senai.integrador.beans.exception.FuncionarioException;
 import edu.senai.integrador.beans.exception.PessoaException;
 
 public class LeituraTerminal {
-	private static BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+	private BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 
-	public static String leString() throws Exception {
+	public String leString() throws IOException, LeituraException {
 		String leitura = teclado.readLine();
 		if (!leitura.trim().isEmpty())
 			return leitura;
-		throw new PessoaException(EPessoaErro.VALOR_VAZIO);
+		throw new LeituraException(ELeituraErros.VALOR_VAZIO);
 	}
 
-	public static String leNome() throws Exception {
+	public String leNome() throws Exception {
 		String nome = teclado.readLine().toLowerCase();
-		if (!nome.trim().matches("[a-z]*"))
-			throw new PessoaException(EPessoaErro.NOME_INVALIDO);
+		if (nome.trim().isEmpty() || nome.length() > 30) {
+			throw new LeituraException(ELeituraErros.USUARIO_TAMANHO);
+		}
+		if (!nome.matches("[a-z ]{6,30}"))
+			throw new LeituraException(ELeituraErros.USUARIO_INVALIDO);
 		return titleCase(nome);
 
 	}
 
-	public static int leInt() throws Exception {
+	public String leUsuario() throws Exception {
+		String leitura = leString();
+		if (Integer.valueOf(leitura) < 6 || Integer.valueOf(leitura) > 30)
+			throw new LeituraException(ELeituraErros.USUARIO_TAMANHO);
+		if (!leitura.matches("[A-Za-z0-9_\\-.]{6,30}"))
+			throw new LeituraException(ELeituraErros.USUARIO_INVALIDO);
+		return leitura;
+	}
+	
+	public String leSenha() throws Exception {
+		String leitura = leString();
+		if (!leitura.matches(".{6,20}")) 
+			throw new LeituraException(ELeituraErros.SENHA_TAMANHO);
+		return leitura;
+	}
+
+	public int leInt() throws Exception {
 		return Integer.parseInt(teclado.readLine());
 	}
 
-	public static double leAltura() throws Exception {
+	public double leAltura() throws Exception {
 		String leitura = teclado.readLine();
 		if (!leitura.matches("[1-3]"))
 			throw new AlunoException(EAlunoErro.ALTURA_INVALIDA, Aluno.class, "");
@@ -57,7 +77,7 @@ public class LeituraTerminal {
 		return leitura;
 	}
 
-	public static String leCpf() throws Exception {
+	public String leCpf() throws Exception {
 		String leitura = teclado.readLine();
 		StringBuffer builder = new StringBuffer();
 		if (!leitura.matches("\\d{3}[.,\\-_]?\\d{3}[.,\\-_]?\\d{3}[.,\\-_]?\\d{2}"))
@@ -69,14 +89,14 @@ public class LeituraTerminal {
 		return builder.toString();
 	}
 
-	public static String leTelefone() throws Exception {
+	public String leTelefone() throws Exception {
 		String leitura = teclado.readLine();
 		if (!leitura.matches("\\(?\\d{2}[\\)\\s\\-]?\\d[\\s\\-]?\\d{2}[\\-\\s]?\\d{2}[\\-\\s]?\\d[\\-\\s]?\\d{3}"))
 			throw new ContatoException(EContatoErro.NUMERO_INVALIDO);
 		return leitura;
 	}
 
-	public static LocalDate leData() throws Exception {
+	public LocalDate leData() throws Exception {
 		String leitura = teclado.readLine();
 		LocalDate data = null;
 		if (leitura.matches("\\d{1,2}[/.-]?\\d{2}[/.-]?\\d{2,4}")) {
@@ -89,34 +109,34 @@ public class LeituraTerminal {
 		}
 		return data;
 	}
-	
-	public static boolean validaAno(int ano) throws PessoaException {
+
+	public boolean validaAno(int ano) throws PessoaException {
 		if (ano < 1900)
 			throw new PessoaException(EPessoaErro.DATA_ANO_INVALIDO);
 		return true;
 	}
 
-	public static boolean validaMes(int mes) throws PessoaException {
+	public boolean validaMes(int mes) throws PessoaException {
 		if (mes < 1 || mes > 12)
 			throw new PessoaException(EPessoaErro.DATA_MES_INVALIDO);
 		return true;
 	}
 
-	public static boolean validaDia(int dia) throws PessoaException {
+	public boolean validaDia(int dia) throws PessoaException {
 		if (dia < 1 || dia > 31)
 			throw new PessoaException(EPessoaErro.DATA_DIA_INVALIDO);
 		return true;
 	}
 
-	public static boolean lePeriodo(LocalDate data, int teste) {
+	public boolean lePeriodo(LocalDate data, int teste) {
 		return Period.between(data, LocalDate.now()).getYears() < teste;
 	}
 
-	public static String leEndereco() throws Exception {
+	public String leEndereco() throws Exception {
 		return leNome();
 	}
 
-	public static String leEmail() throws Exception {
+	public String leEmail() throws Exception {
 		String leitura = teclado.readLine().toLowerCase();
 		if (!leitura.matches(
 				"([a-z][a-z0-9!#$%&'*+-/=?^_`{|}~]*|[\"[(),:;<>@\\]\"]*[a-z0-9]*[\\._-]?[a-z]*@[a-z0-9]*\\.[a-z]{2,3}(\\.[a-z]{0,3})?)"))
@@ -124,24 +144,24 @@ public class LeituraTerminal {
 		return leitura;
 	}
 
-	public static String leIP() throws Exception {
+	public String leIP() throws Exception {
 		String leitura = teclado.readLine();
 		if (!leitura.matches("(\\d{3}.?)+(\\d{3}.?)+\\d+(.?)+\\d{0,6}"))
-			throw new LeituraException(ELeituraErro.IP_INVALIDO);
+			throw new LeituraException(ELeituraErros.IP_INVALIDO);
 		return leitura;
 	}
 
-	public static String leSim() throws Exception {
+	public String leSim() throws Exception {
 		String leitura = teclado.readLine();
 		if (leitura.toLowerCase().matches("\\bsim\\b|\\byes\\b|\\bs\\b|\\by\\b|\\b1\\b"))
 			return "true";
 		else if (leitura.toLowerCase().matches("\\bnao\\b|\\bno\\b|\\bn\\b|\\b0\\b"))
 			return "false";
 		else
-			throw new LeituraException(ELeituraErro.SIM_NAO);
+			throw new LeituraException(ELeituraErros.SIM_NAO);
 	}
 
-	public static ESexo leSexo() throws Exception {
+	public ESexo leSexo() throws Exception {
 		char leitura = teclado.readLine().toLowerCase().charAt(0);
 		switch (leitura) {
 		case 'f':
@@ -153,7 +173,7 @@ public class LeituraTerminal {
 		}
 	}
 
-	public static EEstadoCivil leEstadoCivil() throws Exception {
+	public EEstadoCivil leEstadoCivil() throws Exception {
 		char leitura = teclado.readLine().toLowerCase().charAt(0);
 		switch (leitura) {
 		case '1':
@@ -169,7 +189,7 @@ public class LeituraTerminal {
 		}
 	}
 
-	public static EEscolaridade leEscolaridade() throws Exception {
+	public EEscolaridade leEscolaridade() throws Exception {
 		char leitura = teclado.readLine().toLowerCase().charAt(0);
 		switch (leitura) {
 		case '1':
@@ -207,7 +227,7 @@ public class LeituraTerminal {
 		}
 	}
 
-	public static String titleCase(String string) {
+	public String titleCase(String string) {
 		String[] lista = string.split(" {2,45}");
 		for (int i = 0; i < lista.length; i++) {
 			if (lista[i].length() > 2)

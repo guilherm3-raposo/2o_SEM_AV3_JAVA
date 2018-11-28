@@ -28,7 +28,7 @@
 			<semana>semana</semana>
 			<idMod>idModalidade</idMod>
 			<minimo>minimoParticipantes</minimo>
-			<ativo>ativo</ativo>	
+			<maximo>maximoParticipantes</maximo>	
 		</colunasModalidade>
 
 		<colunasTurma>
@@ -64,13 +64,10 @@
 		<comandos>		
 				 <insertPessoa>INSERT INTO pessoa(CPF, nome, estadoCivil, sexo, dataNascimento, ativo) VALUES(</insertPessoa>
 		 		  <insertAluno>INSERT INTO aluno(CPF, altura, peso) VALUES(</insertAluno>
-			<insertContato>insert into contato(CPF, fixo, movel, email) values(</insertContato>
 			<insertFuncionario>INSERT INTO funcionario(CPF, escolaridade, CTPS) VALUES(</insertFuncionario>
 	 			 <insertModalidade></insertModalidade>
 	 			 <selectAlunos>select * from aluno inner join pessoa on aluno.CPF = pessoa.cpf;</selectAlunos>
 				  <selectAluno>select * from aluno inner join pessoa on aluno.CPF = pessoa.cpf where aluno.CPF = ?;</selectAluno>
-			<selectContato>select * from contato inner join pessoa on contato.CPF = pessoa.CPF where contato.CPF = ?;</selectContato>
-			<selectContatos>select * from contato inner join pessoa on contato.CPF = pessoa.CPF;</selectContatos>
 			<selectFuncionarios>select * from funcionario inner join pessoa on funcionario.CPF = pessoa.cpf;</selectFuncionarios>
 			 <selectFuncionario>select * from funcionario inner join pessoa on funcionario.CPF = pessoa.cpf where funcionario.CPF = ?;</selectFuncionario>
 				<selectPartFunc>select * from participantes where participantes.idTurma = ? and participantes.CPFFuncionario is not null</selectPartFunc>
@@ -124,7 +121,6 @@
 			<alter>ALTER </alter>
 			<table>TABLE </table>
 			<column>COLUMN </column>
-			<pkDuplicada>1062</pkDuplicada>
 		</sintaxe>
 		
 	</body>

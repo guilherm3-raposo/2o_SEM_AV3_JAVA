@@ -21,13 +21,14 @@ public class Seguranca {
 	private static Properties prop = config.carrega(true);
 	private static final String serialMatcher = "QRKBWVNAK2VUDV52E63BBY2GTKECSD266";
 	
-	public static boolean setRegistro(String serial) {
+	public static boolean confereSerial(String serial) throws SegurancaException {
 		if (serial.trim().matches(serialMatcher)) {
 			prop.setProperty("seguranca.isRegistered", "true");
 			config.salva(prop, true);
 			return true;
+		} else {
+			throw new SegurancaException();
 		}
-		return false;
 	}
 
 	public static boolean getRegistro() {

@@ -9,6 +9,7 @@ public class ItemsMenu {
 	public final String REGISTRO 			= "Produto registrado com sucesso!!!";
 	public final String USR_SUCESSO 		= "Usuário registrado com sucesso!!!";
 	public final String SERIAL_INV 			= "Chave Serial Inválida!!!";
+	public final String OPCAO_INVALIDA 		= "Opção inválida!";
 	public final String CARAC_INVALID 		= "Nome inválido! Caracteres válidos: Aa-Zz, 0-9, _ - .";
 	public final String NUM_INVALIDO 		= "Número inválido!";
 	public final String CRIADA_BD 			= "Base de dados criada com sucesso!";
@@ -28,12 +29,6 @@ public class ItemsMenu {
 	public final String BD_PWD 				= "Digite a senha do SGBD______________________ ";
 	public final String MENU_FUNCIONARIOS	= "MENU FUNCIONARIOS";
 	public final String CTPS				= "Insira o CTPS_______________________________ ";
-	
-	public final String ESCOLARIDADE		= "0- Fundamental Incompleto\n1- Fundamental Completo" 
-											+ "2- Médio Imcompleto\n3- Médio Completo\n"
-											+ "4- Superior Incompleto\n5- Superior Completo\n"
-											+ "Insira a escolaridade_______________________ ";
-	
 	public final String MENU_ALUNOS			= "MENU ALUNOS";
 	public final String MODALIDADES 		= "MENU MODALIDADES";
 	public final String TURMAS 				= "MENU TURMAS";

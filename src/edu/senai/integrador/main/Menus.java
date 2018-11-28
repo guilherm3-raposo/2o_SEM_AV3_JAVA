@@ -2,44 +2,15 @@ package edu.senai.integrador.main;
 
 import java.util.List;
 
-import edu.senai.integrador.bancodedados.conexao.ConexaoException;
 import edu.senai.integrador.beans.Funcionario;
-import edu.senai.integrador.beans.Login;
-import edu.senai.integrador.beans.exception.PessoaException;
-import edu.senai.integrador.dao.DAOException;
 import edu.senai.integrador.dao.FuncionarioDAO;
-import edu.senai.integrador.dao.LoginDAO;
 import edu.senai.integrador.ferramentas.LeituraTerminal;
 
 public class Menus {
 	public static List<String> argumentos = UsaSistema.argumentos;
 	private static ItemsMenu text = new ItemsMenu();
+	private static LeituraTerminal leitor = new LeituraTerminal();
 	
-	public static int validaUsuario() {
-		LoginDAO loginDAO = new LoginDAO();
-		while (true) {
-			try {
-				System.out.println(text.LOGIN_USR);
-				String usuario = LeituraTerminal.leString();
-				Login login = loginDAO.consulta(usuario);
-				System.out.println(text.LOGIN_SENHA);
-				usuario = LeituraTerminal.leString();
-				if(login.getSenha().matches(usuario)) 
-					System.out.println(text.LOGIN_SUCESSO);
-				return login.getPermissao();
-				
-			} catch (DAOException e) {
-				System.out.println(e.getMessage());
-			} catch (PessoaException e) {
-				System.out.println(e.getMessage());
-			} catch (ConexaoException e) {
-				System.out.println(e.getMessage());
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
-	}
-
 	public static boolean menuPrincipal(int i) {
 		while (true) {
 			try {
@@ -53,10 +24,10 @@ public class Menus {
 								+ (i == 0 ? "6. Configurações\n" : "\n")
 								+ "7. Sair"
 								+ "Digite a opção desejada: ");
-				LeituraTerminal.leInt();
-				switch (LeituraTerminal.leInt()) {
+				leitor.leInt();
+				switch (leitor.leInt()) {
 				default:
-					UsaSistema.printaWarning(text.NUM_INVALIDO);
+					UsaSistema.printaWarning(text.OPCAO_INVALIDA);
 				case 1:
 					menuFuncionarios();
 				case 2:
@@ -86,7 +57,7 @@ public class Menus {
 								 + "2.  Altera  Funcionários\n"
 								 + "3.  Exclui  Funcionários\n"
 								 + "4.	Voltar");
-				switch (LeituraTerminal.leInt()) {
+				switch (leitor.leInt()) {
 				default:
 					UsaSistema.printaWarning(text.BD_DRIVER);
 				case 1:
@@ -112,14 +83,16 @@ public class Menus {
 			UsaSistema.limpaConsole();
 			try {
 				System.out.println(text.USUARIO);
-				funcionario.setNome(LeituraTerminal.leNome());
+				funcionario.setNome(leitor.leNome());
 
 				System.out.println(text.SENHA);
-				funcionario.setCPF(LeituraTerminal.leCpf());
+				funcionario.setCPF(leitor.leCpf());
 
-				System.out.println(text.ESCOLARIDADE);
-				funcionario.setEscolaridade(LeituraTerminal.leEscolaridade());
-				
+				System.out.println("0- Fundamental Incompleto\n1- Fundamental Completo" 
+								 + "2- Médio Imcompleto\n3- Médio Completo\n"
+								 + "4- Superior Incompleto\n5- Superior Completo\n\n"
+								 + "Insira a escolaridade_______________________ ");
+				funcionario.setEscolaridade(leitor.leEscolaridade());
 				
 				dao.insere(funcionario);
 			} catch (Exception e) {
@@ -135,7 +108,7 @@ public class Menus {
 				
 				
 				
-				switch(LeituraTerminal.leInt()) {
+				switch(leitor.leInt()) {
 				default:
 					UsaSistema.printaWarning(text.NUM_INVALIDO);
 				case 1:
