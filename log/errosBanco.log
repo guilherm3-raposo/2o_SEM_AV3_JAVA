@@ -1,0 +1,158 @@
+#04/11/2018 - 13:33:03 (Sun.) - Erro ao consultar o registro na tabela informada:#edu.senai.integrador.dao.TurmaDAO#For input string: "boxe"#
+#04/11/2018 - 13:41:13 (Sun.) - Erro ao consultar o registro na tabela informada:#edu.senai.integrador.dao.TurmaDAO#For input string: "boxe"#
+#04/11/2018 - 13:55:21 (Sun.) - Erro ao consultar o registro na tabela informada:#edu.senai.integrador.dao.TurmaDAO#For input string: "boxe"#
+#04/11/2018 - 13:56:55 (Sun.) - Erro ao consultar o registro na tabela informada:#edu.senai.integrador.dao.TurmaDAO#For input string: "boxe"#
+#04/11/2018 - 13:58:01 (Sun.) - Erro ao consultar o registro na tabela informada:#edu.senai.integrador.dao.TurmaDAO#For input string: "boxe"#
+#04/11/2018 - 13:58:36 (Sun.) - Erro ao consultar o registro na tabela informada:#edu.senai.integrador.dao.TurmaDAO#For input string: "boxe"#
+#04/11/2018 - 14:00:02 (Sun.) - Erro ao consultar o registro na tabela informada:#edu.senai.integrador.dao.TurmaDAO#For input string: "boxe"#
+#04/11/2018 - 14:07:40 (Sun.) - Erro ao consultar o registro na tabela informada:#edu.senai.integrador.dao.TurmaDAO#For input string: "boxe"#
+#09/11/2018 - 21:22:24 (Fri.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UPDATEALUNO SETaltura = 1.5018600225448608, peso = 71.0 WHERE CPF = '99988877700' at line 1#
+#09/11/2018 - 21:23:49 (Fri.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UPDATEALUNO SETaltura = 1.5018600225448608, peso = 71.0 WHERE CPF = '99988877700' at line 1#
+#09/11/2018 - 21:24:09 (Fri.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UPDATEALUNO SETaltura = 1.5018600225448608, peso = 71.0 WHERE CPF = '99988877700' at line 1#
+#09/11/2018 - 21:25:51 (Fri.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UPDATEALUNO SETaltura = 1.5018600225448608, peso = 71.0 WHERE CPF = '99988877700' at line 1#
+#09/11/2018 - 21:26:20 (Fri.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 1.5018600225448608, peso = 71.0 WHERE CPF = '99988877700'' at line 1#
+#09/11/2018 - 21:33:23 (Fri.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''sexo = 0 WHERE CPF = '99988877700'' at line 1#
+#11/11/2018 - 08:37:35 (Sun.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 1.5018600225448608, peso= 71.0 WHERE CPF= '99988877700')' at line 1#
+#11/11/2018 - 08:39:59 (Sun.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 1.5018600225448608, peso= 71.0 WHERE CPF= '99988877700')' at line 1#
+#11/11/2018 - 08:40:30 (Sun.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1#
+#12/11/2018 - 19:15:35 (Mon.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Access denied for user ''@'localhost' (using password: NO)#
+#13/11/2018 - 00:27:20 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '', 'guigui', 2, 1, '2018-11-13')' at line 1#
+#13/11/2018 - 00:28:34 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '', 'guigui', 2, 1, '2018-11-13')' at line 1#
+#13/11/2018 - 00:29:15 (Tue.) - DATA_IDADE_INSUFICIENTE#edu.senai.integrador.beans.Aluno##
+#13/11/2018 - 00:29:15 (Tue.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#O aluno deve ter pelo menos 16 anos#
+#13/11/2018 - 00:30:11 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Duplicate entry '99988877705' for key 'PRIMARY'#
+#13/11/2018 - 18:33:18 (Tue.) - Erro ao excluir o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1#
+#13/11/2018 - 18:34:00 (Tue.) - Erro ao excluir o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1#
+#16/11/2018 - 12:32:56 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.TurmaDAO#Text '18:28:00' could not be parsed at index 0#
+#16/11/2018 - 12:33:34 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.TurmaDAO#Text '18:28:00' could not be parsed: Unable to obtain LocalDateTime from TemporalAccessor: {},ISO resolved to 18:28 of type java.time.format.Parsed#
+#16/11/2018 - 12:34:57 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.TurmaDAO#Text '2018-11-16T18:28:00' could not be parsed at index 2#
+#16/11/2018 - 12:35:11 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.TurmaDAO#Text '2018-11-16 T 18:28:00' could not be parsed at index 2#
+#16/11/2018 - 12:36:10 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.TurmaDAO#Text '2018-11-16 T 18:28:00' could not be parsed at index 2#
+#16/11/2018 - 12:38:53 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.TurmaDAO#Text '2018-11-16T18:28:00.000' could not be parsed at index 2#
+#16/11/2018 - 12:43:49 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.TurmaDAO#Text '18:28:00' could not be parsed, unparsed text found at index 5#
+#16/11/2018 - 12:44:02 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.TurmaDAO#Text '18:28:00' could not be parsed, unparsed text found at index 5#
+#16/11/2018 - 12:45:17 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 12:48:47 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 12:49:30 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 12:54:20 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 12:55:19 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 12:57:45 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 12:58:48 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 12:59:09 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 13:00:15 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 13:00:49 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 13:01:47 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 13:02:03 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 13:06:31 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 13:07:06 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 13:07:29 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 13:08:16 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 16:28:46 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 16:28:58 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 16:29:08 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 17:06:07 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 17:06:44 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 17:06:55 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 17:08:22 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 17:12:16 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 17:13:58 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 17:20:25 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 18:01:44 (Fri.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Duplicate entry '99988877700' for key 'PRIMARY'#
+#16/11/2018 - 18:02:13 (Fri.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1#
+#16/11/2018 - 18:03:24 (Fri.) - Erro ao alterar o registro na tabela informada: #edu.senai.integrador.dao.AlunoDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1#
+#16/11/2018 - 18:11:11 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 18:11:50 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 18:22:44 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 18:29:29 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 18:37:19 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 18:41:02 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 18:46:17 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 19:35:08 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 19:35:23 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 19:35:34 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 19:41:59 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 19:42:11 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 20:01:15 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 20:04:52 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 20:05:45 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 20:06:01 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 20:06:28 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#16/11/2018 - 20:24:34 (Fri.) - Erro ao consultar o registro na tabela informada: #edu.senai.integrador.dao.ParticipantesDAO#Operation not allowed after ResultSet closed#
+#17/11/2018 - 07:46:51 (Sat.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.TurmaDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Turma 'VALUES (1, 'muaythay', '18:28:00', 0)' at line 1#
+#17/11/2018 - 07:49:25 (Sat.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.TurmaDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Turma' VALUES (1, 'muaythay', '18:28:00', 0)' at line 1#
+#17/11/2018 - 08:55:45 (Sat.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.TurmaDAO#You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Turma' VALUES (2, 'muaythay', '18:28:00', 0)' at line 1#
+#17/11/2018 - 09:05:01 (Sat.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.TurmaDAO#Duplicate entry '2' for key 'PRIMARY'#
+#17/11/2018 - 09:31:33 (Sat.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.TurmaDAO#Duplicate entry '2' for key 'PRIMARY'#
+#17/11/2018 - 09:59:39 (Sat.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.TurmaDAO#Duplicate entry '2' for key 'PRIMARY'#
+#17/11/2018 - 10:04:04 (Sat.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.TurmaDAO#Duplicate entry '2' for key 'PRIMARY'#
+#17/11/2018 - 16:34:11 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 16:34:39 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 16:35:31 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 16:35:50 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 16:38:35 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 17:00:41 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 18:28:56 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 18:29:41 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 18:34:58 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 18:35:19 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#17/11/2018 - 18:35:33 (Sat.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#22/11/2018 - 23:20:27 (Thu.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Parameter index out of range (1 > number of parameters, which is 0).#
+#22/11/2018 - 23:23:55 (Thu.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#No database selected#
+#22/11/2018 - 23:27:00 (Thu.) - O Número informado está no formato errado: #edu.senai.integrador.dao.AlunoDAO#For input string: "div"#
+#27/11/2018 - 17:58:21 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 17:58:21 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 17:58:38 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 17:58:38 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 17:58:56 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 17:58:56 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 17:59:20 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 17:59:20 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:00:11 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:00:11 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:00:11 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:00:59 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:00:59 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:00:59 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:01:53 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:01:53 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:01:53 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:02:28 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:02:28 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:02:28 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:09:26 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:09:26 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:09:26 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:09:56 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:09:56 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:09:56 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:11:07 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:11:07 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:11:07 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:12:12 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:12:12 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:12:12 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:12:25 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:12:25 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:12:25 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:12:41 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:12:41 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:12:41 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:13:03 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:13:03 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:13:03 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:13:55 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:13:55 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:13:55 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:15:59 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:15:59 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:15:59 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:18:59 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:18:59 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 18:18:59 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto_integrador'#
+#27/11/2018 - 20:00:30 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#No database selected#
+#27/11/2018 - 20:01:11 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#No database selected#
+#27/11/2018 - 20:01:58 (Tue.) - Erro de Conexão: Não foi possível estabelecer conexão com o Banco de Dados.#Unknown database 'projeto`_integrador'#
+#27/11/2018 - 20:03:38 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Parameter index out of range (1 > number of parameters, which is 0).#
+#27/11/2018 - 20:05:37 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Parameter index out of range (1 > number of parameters, which is 0).#
+#27/11/2018 - 20:05:56 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Parameter index out of range (1 > number of parameters, which is 0).#
+#27/11/2018 - 20:06:18 (Tue.) - Houve um problema no SQL inserido: #edu.senai.integrador.dao.AlunoDAO#Parameter index out of range (1 > number of parameters, which is 0).#

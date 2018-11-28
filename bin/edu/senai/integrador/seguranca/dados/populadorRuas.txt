@@ -1,0 +1,5 @@
+Primeiro ,Dois ,Três ,Cinco ,Nove ,XV ,XX ,XXI 
+Janeiro,Fevereiro,Março,Abril,Maio,Junho,Julho,Agosto,Setembro,Outubro,Novembro,Dezembro
+Marechal ,Coronel ,Brigadeiro ,Almirante ,Capitão 
+Bento ,Barroso ,Floriano ,Max ,Deodoro ,Freitas ,Barbosa ,Rondon
+Gonçalves,Mello,Fraga,Schramm,Filho,Garcia

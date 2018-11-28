@@ -1,0 +1,33 @@
+<html>
+	<body>
+		<estados>
+			<e1>AC</e1>
+			<e2>AL</e2>
+			<e3>AP</e3>
+			<e4>AM</e4>
+			<e5>BA</e5>
+			<e6>CE</e6>
+			<e7>DF</e7>
+			<e8>ES</e8>
+			<e9>GO</e9>
+			<e10>MA</e10>
+			<e11>MT</e11>
+			<e12>MS</e12>
+			<e13>MG</e13>
+			<e14>PA</e14>
+			<e15>PB</e15>
+			<e16>PR</e16>
+			<e17>PE</e17>
+			<e18>PI</e18>
+			<e19>RJ</e19>
+			<e20>RN</e20>
+			<e21>RS</e21>
+			<e22>RO</e22>
+			<e23>RR</e23>
+			<e24>SC</e24>
+			<e25>SP</e25>
+			<e26>SE</e26>
+			<e27>TO</e27>
+		</estados>
+	</body>
+</html>
