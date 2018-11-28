@@ -18,7 +18,7 @@ public class Instanciador {
 		try {
 			Aluno aluno = new Aluno(
 
-					"99988877" + random.nextInt(3),
+					"99988877" + random.nextInt(9) + random.nextInt(9) + random.nextInt(9),
 
 					ENomes.values()[random.nextInt(10)].getNome() + " "
 							+ ENomes.values()[random.nextInt(10)].getSegundoNome() + " "
@@ -35,18 +35,18 @@ public class Instanciador {
 					EEstadoCivil.values()[random.nextInt(4)]);
 			aluno.setAtivo(true);
 			return aluno;
-		} catch (PessoaException | AlunoException | FuncionarioException e) {
+		} catch (PessoaException | AlunoException e) {
 			
 		}
 		return null;
 	}
 
-	public static Funcionario criaFuncionario(int i) {
+	public static Funcionario criaFuncionario() {
 		Random random = new Random();
 		try {
 			Funcionario funcionario = new Funcionario(
-					"88877766" + random.nextInt(3),
-					"000111223334445" + i,
+					"88877766" + + random.nextInt(9) + random.nextInt(9) + random.nextInt(9),
+					"0001112233344" + random.nextInt(9) + random.nextInt(9) + random.nextInt(9),
 
 					EEscolaridade.values()[random.nextInt(5)],
 

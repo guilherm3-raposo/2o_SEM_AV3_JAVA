@@ -51,4 +51,5 @@ public class SqlSintaxe {
 	public final String ALTER		= (tags[39]);
 	public final String TABLE		= (tags[40]);
 	public final String COLUMN		= (tags[41]);
+	public final String DUPLICATE_PK= (tags[42]);
 }

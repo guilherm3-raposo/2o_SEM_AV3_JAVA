@@ -56,7 +56,7 @@ public class Contato {
 	public String toString() {
 		return "\nCPF_______________ " + FormataDados.formataCpf(getCPF()) +
 			   "\nTelefone Fixo_____ " + FormataDados.formataTelefone(getTelefoneFixo()) + 
-			   "\nTelefone Mï¿½vel____ " + FormataDados.formataTelefone(getTelefoneMovel()) + 
+			   "\nTelefone Móvel____ " + FormataDados.formataTelefone(getTelefoneMovel()) + 
 			   "\nEmail_____________ " + getEmail();
 
 	}

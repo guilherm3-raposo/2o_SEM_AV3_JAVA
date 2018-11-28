@@ -57,7 +57,7 @@ public class ParticipantesDAO {
 		participantes.forEach((cpf, participante) -> {
 			try {
 				participantes.replace(cpf, alunoDAO.consulta(cpf));
-			} catch (ConexaoException | DAOException e) {
+			} catch (ConexaoException e) {
 			}
 		});
 		participantes.remove(null);

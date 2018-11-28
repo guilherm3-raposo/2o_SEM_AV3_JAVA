@@ -124,6 +124,7 @@
 			<alter>ALTER </alter>
 			<table>TABLE </table>
 			<column>COLUMN </column>
+			<pkDuplicada>1062</pkDuplicada>
 		</sintaxe>
 		
 	</body>

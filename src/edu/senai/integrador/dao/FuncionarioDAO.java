@@ -69,20 +69,37 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 	private String[] constroiUpdate(Funcionario funcionario) {
 		String[] update = { sq.UPDATE + " ", sq.UPDATE + " " };
 		
-		update[0] += tabelas.FUNCIONARIO.toString() + 
-					 sq.SET + 
-				colunas.ESCOLARIDADE + sq.EQUALS + funcionario.getEscolaridade().ordinal() + sq.COMMA + 
-				colunas.CTPS + sq.EQUALS + funcionario.getCtps() + 
-					 sq.WHERE + colunas.CPF + sq.EQUALS + sq.VARCHAR + funcionario.getCPF() + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
+		update[0] += tabelas.FUNCIONARIO + 
+						  sq.SET + 
+					 colunas.ESCOLARIDADE + 
+					      sq.EQUALS + 
+				 funcionario.getEscolaridade().ordinal() + sq.COMMA + 
+					 colunas.CTPS + 
+					 	  sq.EQUALS + sq.VARCHAR +
+				 funcionario.getCtps() + sq.VARCHAR + " " +
+						  sq.WHERE + 
+					 colunas.CPF + 
+					 	  sq.EQUALS + sq.VARCHAR + 
+				 funcionario.getCPF() + sq.VARCHAR + sq.SEMI_COLON;
 		
-		update[1] += tabelas.PESSOA.toString() + sq.SET + 
-			    colunas.NOME + sq.EQUALS + sq.VARCHAR + funcionario.getNome() + sq.VARCHAR + sq.COMMA + 
-			    colunas.DATA_NASC + sq.EQUALS + sq.VARCHAR + Date.valueOf(funcionario.getDataDeNascimento()) + sq.VARCHAR + sq.COMMA + 
-			    colunas.ESTAD0_CIVIL + sq.EQUALS + funcionario.getEstadoCivil().ordinal() + sq.COMMA + 
-			    colunas.SEXO + sq.EQUALS + funcionario.getSexo().ordinal() + 
-					 sq.WHERE + colunas.CPF + sq.EQUALS + sq.VARCHAR + 
-					 funcionario.getCPF() + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
-
+		update[1] += tabelas.PESSOA + 
+						  sq.SET + 
+					 colunas.NOME + 
+					 	  sq.EQUALS + sq.VARCHAR + 
+				 funcionario.getNome() + sq.VARCHAR + sq.COMMA + 
+				 	 colunas.DATA_NASC + 
+				 	 	  sq.EQUALS + sq.VARCHAR + 
+	Date.valueOf(funcionario.getDataDeNascimento()) + sq.VARCHAR + sq.COMMA + 
+			    	 colunas.ESTAD0_CIVIL + sq.EQUALS + 
+			     funcionario.getEstadoCivil().ordinal() + sq.COMMA + 
+			     	 colunas.SEXO + 
+			     	 	  sq.EQUALS + 
+			     funcionario.getSexo().ordinal() + 
+					 	  sq.WHERE + 
+					 colunas.CPF + 
+					 	  sq.EQUALS + sq.VARCHAR + 
+				 funcionario.getCPF() + sq.VARCHAR + sq.SEMI_COLON;
+		System.out.println(update[0] + "\n" + update[1]);
 		return update;
 	}
 	
@@ -95,10 +112,11 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 			ResultSet rs = pst.executeQuery();
 			return rs.first() ? constroiFuncionario(rs) : null;
 		} catch (SQLException e) {
-			throw new DAOException(EDaoErros.CONSULTA_DADO, e.getMessage(), this.getClass());
+			
 		} finally {
 			Conexao.fechaConexao();
 		}
+		return null;
 	}
 
 	@Override
@@ -138,7 +156,8 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 			st.execute(insert[0]);
 			st.execute(insert[1]);
 		} catch (SQLException e) {
-			throw new DAOException(EDaoErros.CONSULTA_DADO, e.getMessage(), this.getClass());
+			if(e.getErrorCode() == Integer.valueOf(sq.DUPLICATE_PK))
+				throw new DAOException(EDaoErros.CADASTRO_INATIVO, sq.DUPLICATE_PK, this.getClass());
 		} finally {
 			Conexao.fechaConexao();
 		}
@@ -235,5 +254,27 @@ public class FuncionarioDAO implements ICRUDPadraoDAO<Funcionario, String> {
 //	@Override
 	public boolean exclui(Funcionario funcionario) throws ConexaoException, DAOException {
 		return exclui(funcionario.getCPF());
+	}
+	
+	@Override
+	public String toString() {
+		Funcionario funcionario = new Funcionario();
+		try {
+			funcionario.setAtivo(true);
+			funcionario.setCPF("12345678910");
+			funcionario.setDataDeNascimento(LocalDate.now());
+			funcionario.setEstadoCivil(EEstadoCivil.CASADO);
+			funcionario.setNome("xIRLEy cReUzA");
+			funcionario.setSexo(ESexo.FEMININO);
+			funcionario.setCtps("97998798987987");
+			funcionario.setEscolaridade(EEscolaridade.SUPERIOR_INCOMPLETO);
+		} catch (Exception e) {
+		}
+		String[] insert = constroiInsert(funcionario);
+		return insert[0] + "\n" + insert[1];
+	}
+	
+	public static void main(String[] args) throws ConexaoException, DAOException {
+		System.out.println(new FuncionarioDAO().toString());
 	}
 }

@@ -18,7 +18,6 @@ import edu.senai.integrador.beans.Aluno;
 import edu.senai.integrador.beans.enumeradores.EEstadoCivil;
 import edu.senai.integrador.beans.enumeradores.ESexo;
 import edu.senai.integrador.beans.exception.AlunoException;
-import edu.senai.integrador.beans.exception.FuncionarioException;
 import edu.senai.integrador.beans.exception.PessoaException;
 import edu.senai.integrador.dao.sql.ColunasAluno;
 import edu.senai.integrador.dao.sql.SqlComandos;
@@ -31,8 +30,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 	SqlTabelas tabelas = new SqlTabelas();
 	ColunasAluno colunas = new ColunasAluno();
 	
-	private Aluno constroiAluno(ResultSet rs) throws DAOException {
-		try {
+	private Aluno constroiAluno(ResultSet rs) throws NumberFormatException, PessoaException, AlunoException, SQLException {
 			return new Aluno(rs.getString(colunas.CPF),
 							 rs.getString(colunas.NOME),
 			 LocalDate.parse(rs.getString(colunas.DATA_NASC)),
@@ -40,32 +38,23 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 			Float.parseFloat(rs.getString(colunas.ALTURA)),
 			Float.parseFloat(rs.getString(colunas.PESO)),
 	   EEstadoCivil.values()[rs.getInt(colunas.ESTAD0_CIVIL)]);
-		} catch (PessoaException | AlunoException | FuncionarioException e) {
-			throw new DAOException(EDaoErros.CONSULTA_DADO, e.getMessage(), this.getClass());
-		} catch (NumberFormatException e) {
-			throw new DAOException(EDaoErros.NUMERO_INVALIDO, e.getMessage(), this.getClass());
-		} catch (SQLException e) {
-			throw new DAOException(EDaoErros.SQL_INVALIDO, e.getMessage(), this.getClass());
-		}
 	}
 	
-	private String[] constroiInsert (Aluno aluno) throws ConexaoException{
+	private String[] constroiInsert (Aluno aluno) {
 		String[] insert = new String[2];
 
 		insert[0] = comandos.INSERT_PESSOA + sq.VARCHAR +
-					aluno.getCPF() + sq.VARCHAR + sq.COMMA + sq.VARCHAR +
-					aluno.getNome() + sq.VARCHAR + sq.COMMA + 
-					aluno.getEstadoCivil().ordinal() + sq.COMMA + 
-					aluno.getSexo().ordinal() + sq.COMMA + sq.VARCHAR +
-	   Date.valueOf(aluno.getDataDeNascimento()) + sq.VARCHAR + sq.COMMA +
-	   			   (aluno.isAtivo() ? 1 : 0) + sq.CLOSE_PAR + sq.SEMI_COLON;
+					   aluno.getCPF() + sq.VARCHAR + sq.COMMA + sq.VARCHAR +
+					   aluno.getNome() + sq.VARCHAR + sq.COMMA + 
+					   aluno.getEstadoCivil().ordinal() + sq.COMMA + 
+					   aluno.getSexo().ordinal() + sq.COMMA + sq.VARCHAR +
+	      Date.valueOf(aluno.getDataDeNascimento()) + sq.VARCHAR + sq.COMMA +
+	   			      (aluno.isAtivo() ? 1 : 0) + sq.CLOSE_PAR + sq.SEMI_COLON;
 		
 		insert[1] = comandos.INSERT_ALUNO.toString() + sq.VARCHAR + 
 					aluno.getCPF() + sq.VARCHAR + sq.COMMA +
 					aluno.getAltura() + sq.COMMA + 
 					aluno.getPeso() + sq.CLOSE_PAR + sq.SEMI_COLON;
-		System.out.println(insert[0]);
-		System.out.println(insert[1]);
 		return insert;
 	}
 	
@@ -99,7 +88,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 	}
 	
 	@Override
-	public Aluno consulta(String codigo) throws ConexaoException, DAOException {
+	public Aluno consulta(String codigo) throws ConexaoException {
 		Connection conexao = Conexao.getConexao();
 		try {
 			PreparedStatement pst = conexao.prepareStatement(comandos.SELECT_ALUNO);
@@ -110,14 +99,16 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 		} catch (SQLException e) {
 			System.out.println(e.getCause());
 //			throw new DAOException(EDaoErros.SQL_INVALIDO, e.getMessage(), this.getClass());
-		} finally {
+		} catch (Exception e){
+		}
+		finally {
 			Conexao.fechaConexao();
 		}
 		return null;
 	}
 
 	@Override
-	public Map<String, Aluno> consultaTodos() throws ConexaoException, DAOException {
+	public Map<String, Aluno> consultaTodos() throws ConexaoException {
 		Connection conexao = Conexao.getConexao();
 		try {
 			Map<String, Aluno> pessoas = new HashMap<String, Aluno>();
@@ -127,11 +118,12 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 				pessoas.put(rs.getString(colunas.CPF.toString()), constroiAluno(rs));
 			}
 			return pessoas;
-		} catch (SQLException e) {
-			throw new DAOException(EDaoErros.SQL_INVALIDO, e.getMessage(), this.getClass());
+		} catch (Exception e) {
+
 		} finally {
 			Conexao.fechaConexao();
 		}
+		return null;
 	}
 
 	@Override
@@ -153,7 +145,8 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 			st.execute(insert[1]);			
 			return true;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage()+" " + e.getErrorCode());
+			if(e.getErrorCode() == Integer.valueOf(sq.DUPLICATE_PK))
+				throw new DAOException(EDaoErros.CADASTRO_INATIVO, sq.DUPLICATE_PK, this.getClass());
 		} finally {
 			Conexao.fechaConexao();
 		}
@@ -198,10 +191,7 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 					naoInserido = aluno;
 				} catch (SQLException e) {
 					naoInseridos.add(naoInserido);
-				} catch (ConexaoException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				} 
 			});
 		} catch (Exception e) {
 			System.out.println(e.getCause());
@@ -262,5 +252,25 @@ public class AlunoDAO implements ICRUDPadraoDAO<Aluno, String> {
 //	@Override
 	public boolean exclui(Aluno aluno) throws ConexaoException, DAOException {
 		return exclui(aluno.getCPF());
+	}
+	@Override
+	public String toString() {
+		Aluno aluno = new Aluno();
+		try {
+			aluno.setAtivo(true);
+			aluno.setCPF("12345678910");
+			aluno.setAltura(2);
+			aluno.setDataDeNascimento(LocalDate.now());
+			aluno.setEstadoCivil(EEstadoCivil.CASADO);
+			aluno.setNome("xIRLEy cReUzA");
+			aluno.setPeso(60);
+			aluno.setSexo(ESexo.FEMININO);
+		} catch (Exception e) {
+		}
+		String[] insert = constroiInsert(aluno);
+		return insert[0] + "\n" + insert[1];
+	}
+	public static void main(String[] args) {
+		System.out.println(new AlunoDAO().toString());
 	}
 }

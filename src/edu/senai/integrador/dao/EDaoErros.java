@@ -9,7 +9,8 @@ public enum EDaoErros {
 	ALTERA_DADO("Erro ao alterar o registro na tabela informada: "),
 	EXCLUI_DADO("Erro ao excluir o registro na tabela informada: "),
 	NUMERO_INVALIDO("O Número informado está no formato errado: "),
-	SQL_INVALIDO("Houve um problema no SQL inserido: ");
+	SQL_INVALIDO("Houve um problema no SQL inserido: "),
+	CADASTRO_INATIVO("O cadastro informado já existe, deseja reativá-lo?");
 
 	private final String mensagem;
 

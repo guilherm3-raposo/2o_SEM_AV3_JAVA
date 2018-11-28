@@ -43,7 +43,7 @@ public class Instalador {
 		}
 		try {
 			alunoDAO.insereVarios(alunos);
-		} catch (ConexaoException | DAOException e) {
+		} catch (ConexaoException e) {
 			
 		}
 		return true;

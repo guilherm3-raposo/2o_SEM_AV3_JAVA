@@ -36,20 +36,30 @@ public class ContatoDAO implements ICRUDPadraoDAO<Contato, String> {
 	private String constroiInsert(Contato contato) {
 		String insert = new String();
 		insert = comandos.INSERT_CONTATO + 
-				 sq.CHAR + contato.getCPF() + sq.CHAR + sq.COMMA + 
-				 sq.CHAR + contato.getTelefoneFixo() + sq.CHAR + sq.COMMA + 
-				 sq.CHAR + contato.getTelefoneMovel() + sq.CHAR + sq.COMMA +
-				 sq.CHAR + contato.getEmail() + sq.CHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
+	 sq.VARCHAR + contato.getCPF() + sq.VARCHAR + sq.COMMA + 
+	 sq.VARCHAR + contato.getTelefoneFixo() + sq.VARCHAR + sq.COMMA + 
+	 sq.VARCHAR + contato.getTelefoneMovel() + sq.VARCHAR + sq.COMMA +
+	 sq.VARCHAR + contato.getEmail() + sq.VARCHAR + sq.CLOSE_PAR + sq.SEMI_COLON;
 		return insert;
 	}
 	
 	private String constroiUpdate(Contato contato) {
 		String update = new String();
-		update = sq.UPDATE + tabelas.CONTATO + sq.SET + 
-				 colunas.FIXO + sq.EQUALS + sq.CHAR + contato.getTelefoneFixo() +  sq.CHAR + sq.COMMA + 
-				 colunas.MOVEL + sq.EQUALS + sq.CHAR + contato.getTelefoneMovel() + sq.CHAR + sq.COMMA +
-				 colunas.EMAIL + sq.EQUALS + sq.CHAR + contato.getEmail() + sq.CHAR +
-				 sq.WHERE + colunas.CPF + sq.EQUALS + sq.CHAR + contato.getCPF() + sq.CHAR + sq.SEMI_COLON;
+		update = sq.UPDATE + 
+			tabelas.CONTATO + 
+				 sq.SET + 
+			colunas.FIXO + 
+				 sq.EQUALS + sq.VARCHAR + 
+		    contato.getTelefoneFixo() +  sq.VARCHAR + sq.COMMA + 
+			colunas.MOVEL + 
+				 sq.EQUALS + sq.VARCHAR + 
+			contato.getTelefoneMovel() + sq.VARCHAR + sq.COMMA +
+			colunas.EMAIL + sq.EQUALS + sq.VARCHAR + 
+			contato.getEmail() + sq.VARCHAR +
+				 sq.WHERE + 
+			colunas.CPF + 
+				 sq.EQUALS + sq.VARCHAR + 
+			contato.getCPF() + sq.VARCHAR + sq.SEMI_COLON;
 		return update;
 	}
 	
@@ -174,7 +184,7 @@ public class ContatoDAO implements ICRUDPadraoDAO<Contato, String> {
 	}
 
 	@Override
-	public boolean exclui(String objeto) throws ConexaoException, DAOException {
+	public boolean exclui(String cpf) throws ConexaoException, DAOException {
 		// DO NOT EXCLUI PORRA! KAKA
 		return false;
 	}
