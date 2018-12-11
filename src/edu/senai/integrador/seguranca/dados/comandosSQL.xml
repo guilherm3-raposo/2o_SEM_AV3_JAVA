@@ -1,0 +1,83 @@
+<html>
+	<body>
+			<comandosPessoa>
+				<insert>INSERT INTO pessoa(CPF, nome, estadoCivil, sexo, dataNascimento, ativo) VALUES(</insert>
+				<select></select>
+				<select_all></select_all>
+				<update></update>
+				<delete></delete>
+			</comandosPessoa>
+			
+			<comandosAluno>
+				<insert>INSERT INTO aluno(CPF, altura, peso) VALUES(</insert>
+			    <select>select * from aluno inner join pessoa on aluno.CPF = pessoa.cpf where aluno.CPF = ?;</select>
+				<select_all>select * from aluno inner join pessoa on aluno.CPF = pessoa.cpf;</select_all>
+				<update></update>
+				<delete></delete>
+			</comandosAluno>
+			
+			<comandosFuncionario>
+				<insert>INSERT INTO funcionario(CPF, escolaridade, CTPS) VALUES(</insert>
+			    <select>select * from funcionario inner join pessoa on funcionario.CPF = pessoa.cpf where funcionario.CPF = ?;</select>
+				<select_all>select * from funcionario inner join pessoa on funcionario.CPF = pessoa.cpf;</select_all>
+				<update></update>
+				<delete></delete>
+			</comandosFuncionario>
+			
+			<comandosModalidade>
+				<insert></insert>
+				<select>SELECT * FROM modalidade WHERE idModalidade = </select>
+				<select_all></select_all>
+				<update></update>
+				<delete></delete>
+			</comandosModalidade>
+			
+			<comandosLogin>
+				<insert></insert>
+				<select></select>
+				<select_all></select_all>
+				<update></update>
+				<delete></delete>
+			</comandosLogin>
+			
+			<comandosContato>
+				<insert>insert into contato(CPF, fixo, movel, email) values(</insert>
+				<select>select * from contato inner join pessoa on contato.CPF = pessoa.CPF where contato.CPF = ?;</select>
+				<select_all>select * from contato inner join pessoa on contato.CPF = pessoa.CPF;</select_all>
+				<update>update contato set </update>
+				<delete></delete>
+			</comandosContato>
+			
+			<comandosEndereco>
+				<insert>insert into endereco(CPF, logradouro, via, numero, complemento, cidade, estado, CEP) values(</insert>
+				<select>select * from endereco inner join pessoa on endereco.CPF = pessoa.CPF where endereco.CPF = ?;</select>
+				<select_all>select * from endereco inner join pessoa on endereco.CPF = pessoa.CPF;</select_all>
+				<update>update endereco set </update>
+				<delete></delete>
+			</comandosEndereco>
+					
+			<comandosTurma>
+				<insert></insert>
+				<select>select * from turma inner join participantes on turma.idTurma = participantes.idTurma join modalidade on turma.idModalidade = modalidade.idModalidade where turma.idTurma = ?</select>
+				<select>select * from turma inner join participantes on turma.idTurma = participantes.idTurma join modalidade on turma.idModalidade = modalidade.idModalidade</select>
+				<update></update>
+				<delete></delete>
+			</comandosTurma>
+			
+			<comandosParticipantes>
+				<insert></insert>
+				<select>select * from participantes where participantes.idTurma = ? and participantes.CPFAluno is not null</select>
+				<select>select * from participantes where participantes.idTurma = ? and participantes.CPFFuncionario is not null</select>
+				<update></update>
+				<delete></delete>
+			</comandosParticipantes>
+			
+			<comandosExercicio>
+				<insert>insert into exercicio values(</insert>
+				<select>select * from exercicio</select>
+				<select_all>select * from exercicio where exercicio = </select_all>
+				<update>update exercicio set</update>
+				<delete></delete>
+			</comandosExercicio>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+	<body>
+
+		<sintaxe>
+			<char>'</char>
+			<varchar>'</varchar>
+			<date>"yyyy-MM-dd"</date>
+			<dateTime>"yyyy-MM-dd THH:mm"</dateTime>
+			<comma>, </comma>
+			<in>IN </in>
+			<on>ON </on>
+			<not>NOT </not>
+			<and>AND </and>
+			<null>NULL </null>
+			<where> WHERE </where>
+			<values>VALUES </values>
+			<inner>INNER </inner>
+			<left>LEFT </left>
+			<right>RIGHT </right>
+			<full>FULL </full>
+			<self>SELF </self>
+			<join>JOIN </join>
+			<group>GROUP </group>
+			<order>ORDER </order>
+			<by>BY </by>
+			<having>HAVING </having>
+			<exists>EXISTS </exists>
+			<any>ANY </any>
+			<all>* </all>
+			<case>CASE </case>
+			<from>FROM </from>
+			<insert>INSERT </insert>
+			<create>CREATE </create>
+			<select>SELECT </select>
+			<update>UPDATE </update>
+			<delete>DELETE </delete>
+			<into>INTO </into>
+			<database>DATABASE </database>
+			<set>SET </set>
+			<equals>= </equals>
+			<semiColon>;</semiColon>
+			<openPar>(</openPar>
+			<closePar>)</closePar>
+			<alter>ALTER </alter>
+			<table>TABLE </table>
+			<column>COLUMN </column>
+		</sintaxe>
+		<erros>
+			<duplicatePk>DUPLICATE_PK</duplicatePk>
+		</erros>
+
+	</body>
+</html>

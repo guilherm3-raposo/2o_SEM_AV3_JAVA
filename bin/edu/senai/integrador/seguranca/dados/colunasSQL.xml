@@ -1,0 +1,90 @@
+<html>
+	<body>
+
+		<colunasAluno>
+			<id>CPF</id>
+			<altura>altura</altura>
+			<peso>peso</peso>
+		</colunasAluno>
+
+		<colunasFuncionario>
+			<id>CPF</id>
+			<escol>escolaridade</escol>
+			<CTPS>CTPS</CTPS>
+		</colunasFuncionario>
+
+		<colunasModalidade>
+			<idMod>idModalidade</idMod>
+			<semana>semana</semana>
+			<minimo>minimoParticipantes</minimo>
+			<ativo>ativo</ativo>
+		</colunasModalidade>
+
+		<colunasTurma>
+			<idTurma>idTurma</idTurma>
+			<idMod>idModalidade</idMod>
+			<inicio>horarioInicio</inicio>
+			<duracaoMinutos>duracao</duracaoMinutos>
+			<ativo>ativo</ativo>
+		</colunasTurma>
+
+		<colunasParticipantes>
+			<idTurma>idTurma</idTurma>
+			<idAluno>CPFAluno</idAluno>
+			<idFuncionario>CPFFuncionario</idFuncionario>
+		</colunasParticipantes>
+
+		<colunasPessoa>
+			<id>CPF</id>
+			<nome>nome</nome>
+			<eCivil>estadoCivil</eCivil>
+			<sexo>sexo</sexo>
+			<dataNasc>dataNascimento</dataNasc>
+			<ativo>ativo</ativo>
+		</colunasPessoa>
+
+		<colunasLogin>
+			<usuario>usuario</usuario>
+			<senha>senha</senha>
+			<cpf>CPF</cpf>
+			<admin>permissoes</admin>
+		</colunasLogin>
+
+		<colunasMusculacao>
+			<treino>Treino</treino>
+			<objetivo>Objetivo</objetivo>
+			<sessao>Sessao</sessao>
+			<observacao>Observacao</observacao>
+		</colunasMusculacao>
+
+		<colunasExercicio>
+			<exercicio>Exercicio</exercicio>
+			<serie>Serie</serie>
+			<repeticao>Repeticao</repeticao>
+			<carga>Carga</carga>
+			<treino>Treino</treino>
+		</colunasExercicio>
+		
+		<colunasEndereco>
+			<cpf>CPF</cpf>
+			<logradouro>Logradouro</logradouro>
+			<via>Via</via>
+			<numero>Numero</numero>
+			<complemento>Complemento</complemento>
+			<cidade>Cidade</cidade>
+			<estado>Estado</estado>
+			<cep>CEP</cep>
+		</colunasEndereco>
+
+		<colunasContato>
+			<cpf>CPF</cpf>
+			<logradouro>Logradouro</logradouro>
+			<via>Via</via>
+			<numero>Numero</numero>
+			<complemento>Complemento</complemento>
+			<cidade>Cidade</cidade>
+			<estado>Estado</estado>
+			<cep>CEP</cep>
+		</colunasContato>
+	</body>
+</html>

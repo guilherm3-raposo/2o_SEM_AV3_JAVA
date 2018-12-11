@@ -1,0 +1,11 @@
+edu.senai.integrador.a.view
+edu.senai.integrador.bancodedados.conexao
+edu.senai.integrador.beans.academia
+edu.senai.integrador.beans.cadastro
+edu.senai.integrador.beans.pessoa
+edu.senai.integrador.dao
+edu.senai.integrador.dao.sql
+edu.senai.integrador.ferramentas
+edu.senai.integrador.logs
+edu.senai.integrador.seguranca
+edu.senai.integrador.z.populadores
