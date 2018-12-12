@@ -1,0 +1,125 @@
+CREATE DATABASE IF NOT EXISTS `projeto_integrador`;
+USE `projeto_integrador`;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Pessoa` (
+  `CPF` VARCHAR(11) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `estadoCivil` VARCHAR(45) NOT NULL,
+  `sexo` TINYINT(1) NOT NULL,
+  `dataNascimento` DATE NOT NULL,
+  `ativo` TINYINT(1) NOT NULL,
+  UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC) VISIBLE,
+  PRIMARY KEY (`CPF`))
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Aluno` (
+  `CPF` VARCHAR(11) NOT NULL,
+  `altura` FLOAT NOT NULL,
+  `peso` FLOAT NOT NULL,
+  UNIQUE INDEX `CPFAluno_UNIQUE` (`CPF` ASC),
+  CONSTRAINT `fk_aluno_cpf`
+    FOREIGN KEY (`CPF`)
+    REFERENCES `projeto_integrador`.`Pessoa` (`CPF`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Funcionario` (
+  `CPF` VARCHAR(11) NOT NULL,
+  `escolaridade` VARCHAR(45) NULL,
+  `CTPS` VARCHAR(20) NULL,
+  UNIQUE INDEX `CPFFuncionario_UNIQUE` (`CPF` ASC),
+  CONSTRAINT `fk_funcionario_pessoa`
+    FOREIGN KEY (`CPF`)
+    REFERENCES `projeto_integrador`.`Pessoa` (`CPF`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Endereco` (
+  `CPF` VARCHAR(11) NOT NULL,
+  `logradouro` VARCHAR(20) NOT NULL,
+  `via` VARCHAR(50) NOT NULL,
+  `numero` INT NOT NULL,
+  `complemento` VARCHAR(20) NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `estado` VARCHAR(2) NOT NULL,
+  `CEP` VARCHAR(8) NULL,
+  INDEX `fk_endereco_pessoa_idx` (`CPF` ASC) VISIBLE,
+  CONSTRAINT `fk_endereco_pessoa`
+    FOREIGN KEY (`CPF`)
+    REFERENCES `projeto_integrador`.`Pessoa` (`CPF`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Contato` (
+  `CPF` VARCHAR(11) NOT NULL,
+  `fixo` VARCHAR(11) NULL,
+  `movel` VARCHAR(11) NULL,
+  `email` VARCHAR(30) NULL,
+  CONSTRAINT `fk_contato_pessoa`
+    FOREIGN KEY (`CPF`)
+    REFERENCES `projeto_integrador`.`Pessoa` (`CPF`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Login` (
+  `usuario` VARCHAR(30) NOT NULL,
+  `senha` VARCHAR(20) NOT NULL,
+  `CPF` VARCHAR(11) NOT NULL,
+  `permissoes` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`usuario`, `CPF`),
+  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC) VISIBLE,
+  INDEX `fk_login_pessoa_idx` (`CPF` ASC) VISIBLE,
+  CONSTRAINT `fk_login_pessoa`
+    FOREIGN KEY (`CPF`)
+    REFERENCES `projeto_integrador`.`Pessoa` (`CPF`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Modalidade` (
+  `idModalidade` VARCHAR(50) NOT NULL,
+  `semana` CHAR(7) NOT NULL,
+  `minimoParticipantes` INT NULL,
+  PRIMARY KEY (`idModalidade`))
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Turma` (
+  `idTurma` INT NOT NULL,
+  `idModalidade` VARCHAR(50) NOT NULL,
+  `horarioInicio` TIME NULL,
+  `duracao` FLOAT NULL,
+  PRIMARY KEY (`idTurma`),
+  INDEX `fk_turma_modalidade_idx` (`idModalidade` ASC) VISIBLE,
+  CONSTRAINT `fk_turma_modalidade`
+    FOREIGN KEY (`idModalidade`)
+    REFERENCES `projeto_integrador`.`Modalidade` (`idModalidade`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Participantes` (
+  `idTurma` INT NOT NULL,
+  `CPFFuncionario` VARCHAR(11) NULL,
+  `CPFAluno` VARCHAR(11) NULL,
+  INDEX `fk_cpf_funcionario_idx` (`CPFFuncionario` ASC) VISIBLE,
+  INDEX `fk_participantes_turma_idx` (`idTurma` ASC) VISIBLE,
+  INDEX `fk_cpf_aluno_idx` (`CPFAluno` ASC) VISIBLE,
+  CONSTRAINT `fk_cpf_funcionario`
+    FOREIGN KEY (`CPFFuncionario`)
+    REFERENCES `projeto_integrador`.`Funcionario` (`CPF`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_participantes_turma`
+    FOREIGN KEY (`idTurma`)
+    REFERENCES `projeto_integrador`.`Turma` (`idTurma`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_cpf_aluno`
+    FOREIGN KEY (`CPFAluno`)
+    REFERENCES `projeto_integrador`.`Aluno` (`CPF`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `projeto_integrador`.`Exercicio` (
+  `Exercicio` VARCHAR(45) NOT NULL,
+  `Serie` INT NULL,
+  `Repeticao` INT NULL,
+  `Carga` INT NULL,
+  `Treino` INT NULL,
+  PRIMARY KEY (`Exercicio`))
+ENGINE = InnoDB;
